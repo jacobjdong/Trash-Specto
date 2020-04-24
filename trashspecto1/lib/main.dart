@@ -88,13 +88,14 @@ class ScreenTrash extends StatelessWidget {
   Widget build (BuildContext ctxt) {
     return new Scaffold(
       appBar: new AppBar(
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
         ),
-        title: new Center(child: new Text ("Screen Trash", textAlign: TextAlign.center)),
+        title: new Text ("Screen Trash", textAlign: TextAlign.center),
       ),
       body: new Text("Here is where the total trash form will be"),
     );
@@ -106,13 +107,14 @@ class ScreenWastewater extends StatelessWidget {
   Widget build (BuildContext ctxt) {
     return new Scaffold(
       appBar: new AppBar(
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
         ),
-        title: new Center(child: new Text ("Screen Wastewater", textAlign: TextAlign.center)),
+        title: new Text ("Screen Wastewater", textAlign: TextAlign.center),
       ),
       body: new Text("Here is where the wastewater form will be"),
     );
@@ -124,13 +126,14 @@ class ScreenFoodWaste extends StatelessWidget {
   Widget build (BuildContext ctxt) {
     return new Scaffold(
       appBar: new AppBar(
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
         ),
-        title: new Center(child: new Text ("Screen Food Waste", textAlign: TextAlign.center)),
+        title: new Text ("Screen Food Waste", textAlign: TextAlign.center),
       ),
       body: new Text("Here is where the food waste form will be"),
     );
@@ -142,13 +145,14 @@ class ScreenARViewer extends StatelessWidget {
   Widget build (BuildContext ctxt) {
     return new Scaffold(
       appBar: new AppBar(
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
         ),
-        title: new Center(child: new Text ("Screen AR Viewer", textAlign: TextAlign.center)),
+        title:  new Text ("Screen AR Viewer", textAlign: TextAlign.center),
       ),
       body: new Text("Heres wehre the AR view would be"),
     );
