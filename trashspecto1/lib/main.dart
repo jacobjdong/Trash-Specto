@@ -213,7 +213,7 @@ class ScreenARViewer extends StatelessWidget {
             Navigator.pop(ctxt);
           }
         ),
-        title: new Text ("Screen AR Viewer", textAlign: TextAlign.center),
+        title:  new Text ("Screen AR Viewer", textAlign: TextAlign.center),
       ),
       body: new Text("Heres wehre the AR view would be"),
     );
