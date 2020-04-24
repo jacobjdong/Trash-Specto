@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
 
 void main() => runApp(MyApp());
 
@@ -45,7 +44,19 @@ class _MainScreenState extends State<MainScreen> {
         children: <Widget>[
           RaisedButton(
             child: Text(
-              'Settings',
+              'Start!',
+              style: TextStyle(fontSize: 20)
+            ),
+            onPressed: () {
+              Navigator.push(
+                ctxt,
+                MaterialPageRoute(builder: (ctxt) => ScreenOne()),
+              );
+            }
+          ),
+          RaisedButton(
+            child: Text(
+              'Overall Garbage',
               style: TextStyle(fontSize: 20)
             ),
             onPressed: () {
@@ -60,8 +71,6 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-
 
 class Settings extends StatefulWidget {
   
