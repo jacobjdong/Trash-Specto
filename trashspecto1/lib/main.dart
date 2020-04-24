@@ -65,6 +65,18 @@ class ScreenOne extends StatelessWidget {
               );
             }
           ),
+          RaisedButton(
+            child: Text(
+              'AR Viewer',
+              style: TextStyle(fontSize: 20)
+            ),
+            onPressed: () {
+              Navigator.push(
+                ctxt,
+                MaterialPageRoute(builder: (ctxt) => ScreenARViewer()),
+              );
+            }
+          ),
         ]
       )
     );
@@ -121,6 +133,24 @@ class ScreenFoodWaste extends StatelessWidget {
         title: new Center(child: new Text ("Screen Food Waste", textAlign: TextAlign.center)),
       ),
       body: new Text("Here is where the food waste form will be"),
+    );
+  }
+}
+
+class ScreenARViewer extends StatelessWidget {
+  @override
+  Widget build (BuildContext ctxt) {
+    return new Scaffold(
+      appBar: new AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
+          onPressed: () {
+            Navigator.pop(ctxt);
+          }
+        ),
+        title: new Center(child: new Text ("Screen AR Viewer", textAlign: TextAlign.center)),
+      ),
+      body: new Text("Heres wehre the AR view would be"),
     );
   }
 }
