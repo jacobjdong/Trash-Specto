@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -13,7 +15,100 @@ class MyApp extends StatelessWidget {
         
         fontFamily: 'Georgia'
       ),
-      home: new ScreenOne(),
+      home: new MainScreen(),
+    );
+  }
+}
+
+
+
+class MainScreen extends StatefulWidget {
+  @override
+  _MainScreenState createState() => _MainScreenState();
+  
+}
+
+class _MainScreenState extends State<MainScreen> {
+  String name;
+  String ccode;
+
+  @override
+  Widget build(BuildContext ctxt) {
+  
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
+      ),
+      body: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        
+        children: <Widget>[
+          RaisedButton(
+            child: Text(
+              'Settings',
+              style: TextStyle(fontSize: 20)
+            ),
+            onPressed: () {
+              Navigator.push(
+                ctxt,
+                MaterialPageRoute(builder: (ctxt) => Settings()),
+              );
+            }
+          ),
+        ]
+      )
+    );
+  }
+}
+
+
+
+class Settings extends StatefulWidget {
+  
+  @override
+  _SettingsState createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  String chosenRegion = "North America";
+
+  @override
+  Widget build (BuildContext ctxt) {
+
+    return new Scaffold(
+      appBar: new AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
+          onPressed: () {
+            Navigator.pop(ctxt);
+          }
+        ),
+        title: new Text ("Settings", textAlign: TextAlign.center),
+      ),
+      body: new ListView(
+       children: [
+          new Column(
+            children: <Widget>[
+              new DropdownButton<String>(
+                value: chosenRegion,
+                onChanged: (String newValue) {
+                  setState(() {
+                    chosenRegion = newValue;
+                  });
+                },
+                items: <String>['North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
+                  return new DropdownMenuItem<String>(
+                    value: value,
+                    child: new Text(value),
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+        ],
+      )
+      
     );
   }
 }
@@ -37,7 +132,7 @@ class ScreenOne extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
+                MaterialPageRoute(builder: (ctxt) => Settings()),
               );
             }
           ),
