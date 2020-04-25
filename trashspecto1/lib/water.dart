@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'food.dart';
-import 'trash.dart';
-import 'water.dart';
+import 'customSlider.dart';
 
 class ScreenWastewater extends StatefulWidget {
   @override
@@ -31,60 +28,60 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-                'How long is your average shower? (minutes)',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
+              'How long is your average shower? (minutes)',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
               ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                '5',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SliderTheme(
-                   data: SliderTheme.of(ctxt).copyWith(
-                    activeTrackColor: Color(0xff778BF3),
-                    inactiveTrackColor: Color(0xffd5e1fd),
-                    trackShape: RectangularSliderTrackShape(),
-                    trackHeight: 4.0,
-                    thumbColor: Color(0xff778BF3),
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
+                  '5',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xff778BF3),
                   ),
-                  child: Slider(
-                    value: _showerTime,
-                    onChanged: (value) {
-                      setState(() {
-                        _showerTime = value;
-                      });
-                    },
-                    min: 5,
-                    max: 30,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SliderTheme(
+                    data: SliderTheme.of(ctxt).copyWith(
+                      activeTrackColor: Color(0xff778BF3),
+                      inactiveTrackColor: Color(0xffd5e1fd),
+                      trackShape: RectangularSliderTrackShape(),
+                      trackHeight: 4.0,
+                      thumbColor: Color(0xff778BF3),
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                '30',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
+                    child: Slider(
+                      value: _showerTime,
+                      onChanged: (value) {
+                        setState(() {
+                          _showerTime = value;
+                        });
+                      },
+                      min: 5,
+                      max: 30,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+                Text(
+                  '30',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xff778BF3),
+                  ),
+                ),
               ],
             ),
             Text(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Settings extends StatefulWidget {
+class Settings extends StatefulWidget { 
   final String region;
   final bool metric;
-  final Function updateRegion;
-  final Function updateMetric;
+  Function updateRegion;
+  Function updateMetric;
   Settings({this.region, this.metric, this.updateRegion, this.updateMetric});
 
   @override
@@ -28,7 +28,7 @@ class _SettingsState extends State<Settings> {
       appBar: new AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
@@ -40,11 +40,12 @@ class _SettingsState extends State<Settings> {
           new Column(
             children: <Widget>[
               new DropdownButton<String>(
-                value: widget.region,
+                value: this.region,
                 onChanged: (String newValue) {
                   setState(() {
                     this.region = newValue;
                   });
+                  widget.updateRegion(newValue);
                 },
                 items: <String>['North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
                   return new DropdownMenuItem<String>(
@@ -53,11 +54,54 @@ class _SettingsState extends State<Settings> {
                   );
                 }).toList(),
               ),
+              Switch(
+                value: this.metric,
+                onChanged: (value) {
+                  setState(() {
+                    this.metric = value;
+                  });
+                  widget.updateMetric(value);
+                },
+                activeTrackColor: Colors.lightGreenAccent,
+                activeColor: Colors.green,
+              ), 
+              
             ],
           ),
         ],
       )
-      
     );
   }
 }
+
+// RaisedButton(
+//   onPressed: () {
+//     showDialog(
+//         context: context,
+//         builder: (BuildContext context) {
+//           return AlertDialog(
+//             content: Stack(
+//               overflow: Overflow.visible,
+//               children: <Widget>[
+//                 Positioned(
+//                   right: -40.0,
+//                   top: -40.0,
+//                   child: InkResponse(
+//                     onTap: () {
+//                       Navigator.of(context).pop();
+//                     },
+//                     child: CircleAvatar(
+//                       child: Icon(Icons.close),
+//                       backgroundColor: Colors.red,
+//                     ),
+//                   ),
+//                 ),
+                
+//               ],
+//             ),
+//           );
+//         }
+//     );
+//   },
+//   child: Text("Open Popup"),
+// ),
