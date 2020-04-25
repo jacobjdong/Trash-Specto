@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'customSlider.dart';
+import 'package:trashspecto1/customSlider.dart';
 
 class ScreenWastewater extends StatefulWidget {
   @override
@@ -7,317 +7,353 @@ class ScreenWastewater extends StatefulWidget {
 }
 
 class _ScreenWastewaterState extends State<ScreenWastewater> {
-  double _showerTime = 10, _showerFreq = 7, _dishwashingType = 1, _clothesFreq = 4, _lawnSize = 1000;
+  double _showerTime = 10, _showerFreq = 7, _clothesFreq = 4, _lawnSize = 50, _toiletFreq = 3;
+  String _dishwasherType;
+  String newValue;
+  List<Widget> cards;
+
+  void removeTop() {
+    setState(() {
+      cards.removeAt(cards.length - 1);
+    });
+  }
 
   @override
+  void initState() {
+    super.initState();
+    cards = updateCards();
+  }
+  dynamic _background = "images/bathroomlayout.png";
+  
+  @override
   Widget build (BuildContext ctxt) {
-    return new Scaffold(
-      appBar: new AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
-          onPressed: () {
-            Navigator.pop(ctxt);
-          }
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(_background),
+          fit: BoxFit.cover
         ),
-        title: new Text ("Screen Wastewater", textAlign: TextAlign.center),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(15.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'How long is your average shower? (minutes)',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
+      child: new Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: new AppBar(
+          centerTitle: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
+            onPressed: () {
+              Navigator.pop(ctxt);
+            }
+          ),
+          title: new Text ("Screen Wastewater", textAlign: TextAlign.center),
+        ),
+        body: Center(
+          child: Stack(
+            alignment: Alignment.center,
+            children: cards,
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  '5',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xff778BF3),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SliderTheme(
-                    data: SliderTheme.of(ctxt).copyWith(
-                      activeTrackColor: Color(0xff778BF3),
-                      inactiveTrackColor: Color(0xffd5e1fd),
-                      trackShape: RectangularSliderTrackShape(),
-                      trackHeight: 4.0,
-                      thumbColor: Color(0xff778BF3),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-                    ),
-                    child: Slider(
-                      value: _showerTime,
-                      onChanged: (value) {
-                        setState(() {
-                          _showerTime = value;
-                        });
-                      },
-                      min: 5,
-                      max: 30,
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  '30',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xff778BF3),
-                  ),
-                ),
-              ],
-            ),
-            Text(
-                '\n\nHow often do you shower? (per week)',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                '0',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              Column(
+        )
+      ),
+    );
+  }
+
+  List<Widget> updateCards() {
+    cards = new List();
+
+    cards.insert(0,
+      Positioned(
+        top: 190,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            width: 260.0,
+            height: 350.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SliderTheme(
-                   data: SliderTheme.of(ctxt).copyWith(
-                    activeTrackColor: Color(0xff778BF3),
-                    inactiveTrackColor: Color(0xffd5e1fd),
-                    trackShape: RectangularSliderTrackShape(),
-                    trackHeight: 4.0,
-                    thumbColor: Color(0xff778BF3),
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-                  ),
-                  child: Slider(
-                    divisions: 14,
-                    value: _showerFreq,
-                    onChanged: (value) {
+                   customSlider(
+                    updateVal: (value) {
                       setState(() {
-                        _showerFreq = value;
+                        this._toiletFreq = value;
                       });
                     },
+                    question: "How often do you flush the toilet (per day)",
+                    min: 0,
+                    max: 10,
+                    showerTime: this._toiletFreq,
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Remove!',
+                      style: TextStyle(fontSize: 20)
+                    ),
+                    onPressed: () {
+                      removeTop();
+                    }
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    cards.insert(0,
+      Positioned(
+        top: 160,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            width: 260.0,
+            height: 350.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                   customSlider(
+                    updateVal: (value) {
+                      setState(() {
+                        this._showerFreq = value;
+                      });
+                    },
+                    question: "How often do you shower (per week)",
                     min: 0,
                     max: 14,
+                    showerTime: this._showerFreq,
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Remove!',
+                      style: TextStyle(fontSize: 20)
                     ),
+                    onPressed: () {
+                      removeTop();
+                    }
                   ),
                 ],
               ),
-              Text(
-                '14',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              ],
             ),
-            Text(
-                '\n\nHow do you wash your dishes?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                'Hand',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SliderTheme(
-                   data: SliderTheme.of(ctxt).copyWith(
-                    activeTrackColor: Color(0xff778BF3),
-                    inactiveTrackColor: Color(0xffd5e1fd),
-                    trackShape: RectangularSliderTrackShape(),
-                    trackHeight: 4.0,
-                    thumbColor: Color(0xff778BF3),
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-                  ),
-                  child: Slider(
-                    divisions: 1,
-                    value: _dishwashingType,
-                    onChanged: (value) {
-                      setState(() {
-                        _dishwashingType = value;
-                      });
-                    },
-                    min: 0,
-                    max: 1,
-                    ),
-                  ),
-                ],
-              ),
-              Text(
-                'Machine',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              ],
-            ),
-            Text(
-                '\n\nHow often do you wash your clothes? (per month)',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                '0',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SliderTheme(
-                   data: SliderTheme.of(ctxt).copyWith(
-                    activeTrackColor: Color(0xff778BF3),
-                    inactiveTrackColor: Color(0xffd5e1fd),
-                    trackShape: RectangularSliderTrackShape(),
-                    trackHeight: 4.0,
-                    thumbColor: Color(0xff778BF3),
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-                  ),
-                  child: Slider(
-                    divisions: 5,
-                    value: _clothesFreq,
-                    onChanged: (value) {
-                      setState(() {
-                        _clothesFreq = value;
-                      });
-                    },
-                    min: 0,
-                    max: 5,
-                    ),
-                  ),
-                ],
-              ),
-              Text(
-                '5',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              ],
-            ),
-            Text(
-                '\n\nHow large is your grass lawn? (meters squared)',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                '0',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SliderTheme(
-                   data: SliderTheme.of(ctxt).copyWith(
-                    activeTrackColor: Color(0xff778BF3),
-                    inactiveTrackColor: Color(0xffd5e1fd),
-                    trackShape: RectangularSliderTrackShape(),
-                    trackHeight: 4.0,
-                    thumbColor: Color(0xff778BF3),
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-                  ),
-                  child: Slider(
-                    value: _lawnSize,
-                    onChanged: (value) {
-                      setState(() {
-                        _lawnSize = value;
-                      });
-                    },
-                    min: 0,
-                    max: 10000,
-                    ),
-                  ),
-                ],
-              ),
-              Text(
-                '10,000',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xff778BF3),
-                ),
-              ),
-              ],
-            ),
-          ],
+          ),
         ),
-      )
+      ),
     );
+    
+    cards.insert(0,
+      Positioned(
+        top: 130,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            alignment: Alignment.center,
+            width: 260.0,
+            height: 350.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                   customSlider(
+                    updateVal: (value) {
+                      setState(() {
+                        this._showerTime = value;
+                      });
+                    },
+                    question: "How long is your average shower (minutes)",
+                    min: 5,
+                    max: 30,
+                    showerTime: this._showerTime,
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Remove!',
+                      style: TextStyle(fontSize: 20)
+                    ),
+                    onPressed: () {
+                      removeTop();
+                      _background = "images/laundrylayout.png";
+                    }
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    cards.insert(0,
+      Positioned(
+        top: 100,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            width: 260.0,
+            height: 350.0,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'How do you wash your dishes?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  DropdownButton<String>(
+                    hint: Text('Hand or Machine'),
+                    onChanged: (String changedValue) {
+                      newValue = changedValue;
+                      _dishwasherType = changedValue;
+                      setState(() {
+                        newValue;
+                        print(newValue);
+                      });
+                    },
+                    value: newValue,
+                    items: <String>['Hand', 'Machine'].map((String value) {
+                      return new DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Remove!',
+                      style: TextStyle(fontSize: 20)
+                    ),
+                    onPressed: () {
+                      removeTop();
+                    }
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    cards.insert(0,
+      Positioned(
+        top: 70,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            alignment: Alignment.center,
+            width: 260.0,
+            height: 350.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                   customSlider(
+                    updateVal: (value) {
+                      setState(() {
+                        this._clothesFreq = value;
+                      });
+                    },
+                    question: "How often do you wash your clothes (per month)",
+                    min: 0,
+                    max: 8,
+                    showerTime: this._clothesFreq,
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Remove!',
+                      style: TextStyle(fontSize: 20)
+                    ),
+                    onPressed: () {
+                      removeTop();
+                      _background = "images/lawnlayout.png";
+                    }
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    cards.insert(0,
+      Positioned(
+        top: 40,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            width: 260.0,
+            height: 350.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                   customSlider(
+                    updateVal: (value) {
+                      setState(() {
+                        this._lawnSize = value;
+                      });
+                    },
+                    question: "How large is your grass lawn (meters squared)",
+                    min: 0,
+                    max: 100,
+                    showerTime: this._lawnSize,
+                  ),
+                  RaisedButton(
+                    child: Text(
+                      'Remove!',
+                      style: TextStyle(fontSize: 20)
+                    ),
+                    onPressed: () {
+                      removeTop();
+                    }
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    return cards;
   }
 }

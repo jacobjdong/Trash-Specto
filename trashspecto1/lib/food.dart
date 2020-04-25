@@ -11,22 +11,13 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
   String _diet;
   String newValue;
   List<Widget> cards;
+  int visible = 3;
 
-  void removeTop() {
-    setState(() {
-      cards.removeAt(cards.length - 1);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    cards = getCards();
-  }
-  dynamic _background = "images/foodlayout1nobeef.png";
+  dynamic _background = "images/foodlayout1noanything.png";
   
   @override
   Widget build (BuildContext ctxt) {
+    updateCards();
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -56,10 +47,10 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     );
   }
 
-  List<Widget> getCards() {
-    List<Widget> cards = new List();
+  List<Widget> updateCards() {
+    this.cards = new List();
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 100,
         child: Card(
@@ -124,7 +115,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState (() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -135,7 +128,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       ),
     );
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 70,
         child: Card(
@@ -171,7 +164,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState (() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -182,7 +177,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       ),
     );
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 40,
         child: Card(
@@ -217,7 +212,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState (() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -228,6 +225,8 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       ),
     );
 
-    return cards;
+    for (int i = cards.length; i > visible; i--) {
+      cards.removeAt(i-1);
+    }
   }
 }
