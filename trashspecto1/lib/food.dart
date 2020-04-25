@@ -287,6 +287,8 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
             width: 260.0,
             height: 350.0,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                  customSlider(
                   updateVal: (value) {
@@ -328,6 +330,8 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
             width: 260.0,
             height: 350.0,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                  customSlider(
                   updateVal: (value) {

@@ -37,36 +37,43 @@ class _SettingsState extends State<Settings> {
       ),
       body: new ListView(
        children: [
-          new Column(
+          new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new DropdownButton<String>(
-                value: this.region,
-                onChanged: (String newValue) {
-                  setState(() {
-                    this.region = newValue;
-                  });
-                  widget.updateRegion(newValue);
-                },
-                items: <String>['North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
-                  return new DropdownMenuItem<String>(
-                    value: value,
-                    child: new Text(value),
-                  );
-                }).toList(),
-              ),
-              Switch(
-                value: this.metric,
-                onChanged: (value) {
-                  setState(() {
-                    this.metric = value;
-                  });
-                  widget.updateMetric(value);
-                },
-                activeTrackColor: Colors.lightGreenAccent,
-                activeColor: Colors.green,
-              ), 
-              
-            ],
+              new Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new SizedBox(height: 50),
+                new DropdownButton<String>(
+                  value: this.region,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      this.region = newValue;
+                    });
+                    widget.updateRegion(newValue);
+                  },
+                  items: <String>['North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                ),
+                Switch(
+                  value: this.metric,
+                  onChanged: (value) {
+                    setState(() {
+                      this.metric = value;
+                    });
+                    widget.updateMetric(value);
+                  },
+                  activeTrackColor: Colors.lightGreenAccent,
+                  activeColor: Colors.green,
+                ), 
+                
+              ],
+            ),
+            ]
           ),
         ],
       )

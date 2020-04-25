@@ -41,10 +41,13 @@ class _MainScreenState extends State<MainScreen> {
       appBar: new AppBar(
         title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
       ),
-      body: new Column(
+      body: new Row(
         mainAxisAlignment: MainAxisAlignment.center,
         
         children: <Widget>[
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget> [
           RaisedButton(
             child: Text(
               'Start!',
@@ -82,6 +85,8 @@ class _MainScreenState extends State<MainScreen> {
               );
             }
           ),
+            ]
+          ),
         ]
       )
     );
@@ -95,10 +100,13 @@ class ScreenOne extends StatelessWidget {
       appBar: new AppBar(
         title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
       ),
-      body: new Column(
+      body: new Row(
         mainAxisAlignment: MainAxisAlignment.center,
         
         children: <Widget>[
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
           RaisedButton(
             child: Text(
               'Overall Garbage',
@@ -147,6 +155,7 @@ class ScreenOne extends StatelessWidget {
               );
             }
           ),
+          ],),
         ]
       )
     );
