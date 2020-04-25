@@ -33,9 +33,10 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     _value = value;
                   });
                 },
-                question: "HELLO",
+                question: "OI MATE PISS OFF",
                 min: 0,
-                max: 7
+                max: 2,
+                showerTime: 1.0,
               )),
                 
               Text(
