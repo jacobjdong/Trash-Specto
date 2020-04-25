@@ -89,6 +89,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     hint: Text('Diet'),
                     onChanged: (String changedValue) {
                       newValue = changedValue;
+                      _diet = changedValue;
                       setState(() {
                         if (_diet == 'Vegan' || _diet == 'Vegetarian') {
                           _background = "images/foodlayout1noanything.png";
