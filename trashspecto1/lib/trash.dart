@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'food.dart';
-import 'trash.dart';
-import 'water.dart';
+import 'package:trashspecto1/customSlider.dart';
 
 class ScreenTrash extends StatefulWidget {
   @override
@@ -29,8 +26,18 @@ class _ScreenTrashState extends State<ScreenTrash> {
         padding: EdgeInsets.all(15.0),
         child: Container(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              customSlider(
+                updateVal: (value) {
+                  setState(() {
+                    _value = value;
+                  });
+                },
+                question: "HELLO",
+                min: 0,
+                max: 7
+              ),
+                
               Text(
                 '0',
                 textAlign: TextAlign.center,

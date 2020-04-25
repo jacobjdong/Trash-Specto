@@ -28,7 +28,7 @@ class _SettingsState extends State<Settings> {
       appBar: new AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xff9ee493)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
@@ -65,11 +65,43 @@ class _SettingsState extends State<Settings> {
                 activeTrackColor: Colors.lightGreenAccent,
                 activeColor: Colors.green,
               ), 
+              
             ],
           ),
         ],
       )
-      
     );
   }
 }
+
+// RaisedButton(
+//   onPressed: () {
+//     showDialog(
+//         context: context,
+//         builder: (BuildContext context) {
+//           return AlertDialog(
+//             content: Stack(
+//               overflow: Overflow.visible,
+//               children: <Widget>[
+//                 Positioned(
+//                   right: -40.0,
+//                   top: -40.0,
+//                   child: InkResponse(
+//                     onTap: () {
+//                       Navigator.of(context).pop();
+//                     },
+//                     child: CircleAvatar(
+//                       child: Icon(Icons.close),
+//                       backgroundColor: Colors.red,
+//                     ),
+//                   ),
+//                 ),
+                
+//               ],
+//             ),
+//           );
+//         }
+//     );
+//   },
+//   child: Text("Open Popup"),
+// ),
