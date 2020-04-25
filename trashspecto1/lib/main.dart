@@ -13,7 +13,82 @@ class MyApp extends StatelessWidget {
         
         fontFamily: 'Georgia'
       ),
+<<<<<<< Updated upstream
       home: new ScreenOne(),
+=======
+      home: new MainScreen(),
+    );
+  }
+}
+
+
+class MainScreen extends StatefulWidget {
+  @override
+  _MainScreenState createState() => _MainScreenState();
+  
+}
+
+class _MainScreenState extends State<MainScreen> {
+  String chosenRegion = "North America";
+  bool metric = true;
+
+  @override
+  Widget build(BuildContext ctxt) {
+  
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
+      ),
+      body: new Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                child: Text(
+                  'Start!',
+                  style: TextStyle(fontSize: 20)
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    ctxt,
+                    MaterialPageRoute(builder: (ctxt) => ScreenOne()),
+                  );
+                }
+              ),
+              RaisedButton(
+                child: Text(
+                 'Settings',
+                  style: TextStyle(fontSize: 20)
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    ctxt,
+                    MaterialPageRoute(builder: (ctxt) => new Settings(
+                      region: this.chosenRegion,
+                      metric: this.metric,
+                      updateRegion: (newRegion) {
+                        setState(() {
+                          this.chosenRegion = newRegion;
+                        });
+                      },
+                      updateMetric: (value) {
+                        setState(() {
+                          this.metric = value;
+                        });
+                      },    
+                    )),
+                  );
+                }
+              ),
+            ],
+          ),
+          
+        ]
+      )
+>>>>>>> Stashed changes
     );
   }
 }
@@ -25,59 +100,66 @@ class ScreenOne extends StatelessWidget {
       appBar: new AppBar(
         title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
       ),
-      body: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        
-        children: <Widget>[
-          RaisedButton(
-            child: Text(
-              'Overall Garbage',
-              style: TextStyle(fontSize: 20)
+      body: Container(
+        child: new Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                  child: Text(
+                    'Overall Garbage',
+                    style: TextStyle(fontSize: 20)
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      ctxt,
+                      MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
+                    );
+                  }
+                ),
+            RaisedButton(
+              child: Text(
+                'Wastewater',
+                style: TextStyle(fontSize: 20)
+              ),
+              onPressed: () {
+                Navigator.push(
+                  ctxt,
+                  MaterialPageRoute(builder: (ctxt) => ScreenWastewater()),
+                );
+              }
             ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
-              );
-            }
-          ),
-          RaisedButton(
-            child: Text(
-              'Wastewater',
-              style: TextStyle(fontSize: 20)
+            RaisedButton(
+              child: Text(
+                'Food Waste',
+                style: TextStyle(fontSize: 20)
+              ),
+              onPressed: () {
+                Navigator.push(
+                  ctxt,
+                  MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste()),
+                );
+              }
             ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenWastewater()),
-              );
-            }
-          ),
-          RaisedButton(
-            child: Text(
-              'Food Waste',
-              style: TextStyle(fontSize: 20)
+            RaisedButton(
+              child: Text(
+                'AR Viewer',
+                style: TextStyle(fontSize: 20)
+              ),
+              onPressed: () {
+                Navigator.push(
+                  ctxt,
+                  MaterialPageRoute(builder: (ctxt) => ScreenARViewer()),
+                );
+              }
             ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste()),
-              );
-            }
-          ),
-          RaisedButton(
-            child: Text(
-              'AR Viewer',
-              style: TextStyle(fontSize: 20)
+            ],
             ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenARViewer()),
-              );
-            }
-          ),
-        ]
+          ]
+        ),
       )
     );
   }
