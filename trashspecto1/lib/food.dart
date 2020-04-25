@@ -11,12 +11,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
   String _diet;
   String newValue;
   List<Widget> cards;
-
-  void removeTop() {
-    setState(() {
-      cards.removeAt(cards.length - 1);
-    });
-  }
+  int visible = 3;
 
   dynamic _background = "images/foodlayout1nobeef.png";
   
@@ -120,7 +115,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState (() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -167,7 +164,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState (() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -213,7 +212,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState (() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -223,5 +224,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
         ),
       ),
     );
+
+    for (int i = cards.length; i > visible; i--) {
+      cards.removeAt(i-1);
+    }
   }
 }
