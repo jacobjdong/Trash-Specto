@@ -18,15 +18,11 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     });
   }
 
-  @override
-  void initState() {
-    super.initState();
-    cards = getCards();
-  }
   dynamic _background = "images/foodlayout1nobeef.png";
   
   @override
   Widget build (BuildContext ctxt) {
+    updateCards();
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -56,10 +52,10 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     );
   }
 
-  List<Widget> getCards() {
-    List<Widget> cards = new List();
+  List<Widget> updateCards() {
+    this.cards = new List();
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 100,
         child: Card(
@@ -135,7 +131,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       ),
     );
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 70,
         child: Card(
@@ -182,7 +178,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       ),
     );
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 40,
         child: Card(
@@ -227,7 +223,5 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
         ),
       ),
     );
-
-    return cards;
   }
 }
