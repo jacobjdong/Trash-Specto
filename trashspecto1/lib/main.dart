@@ -67,15 +67,15 @@ class _MainScreenState extends State<MainScreen> {
                 ctxt,
                 MaterialPageRoute(builder: (ctxt) => new Settings(
                   region: this.chosenRegion,
-                  metric: false,
+                  metric: this.metric,
                   updateRegion: (newRegion) {
                     setState(() {
                       this.chosenRegion = newRegion;
                     });
                   },
-                  updateMetric: (newRegion) {
+                  updateMetric: (value) {
                     setState(() {
-                      this.chosenRegion = newRegion;
+                      this.metric = value;
                     });
                   },
                 )),

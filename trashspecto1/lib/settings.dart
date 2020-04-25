@@ -1,4 +1,3 @@
-import 'main.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget { 
@@ -20,7 +19,6 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   String region;
   bool metric;
-
 
   _SettingsState({this.region, this.metric});
 
@@ -56,6 +54,17 @@ class _SettingsState extends State<Settings> {
                   );
                 }).toList(),
               ),
+              Switch(
+                value: this.metric,
+                onChanged: (value) {
+                  setState(() {
+                    this.metric = value;
+                  });
+                  widget.updateMetric(value);
+                },
+                activeTrackColor: Colors.lightGreenAccent,
+                activeColor: Colors.green,
+              ), 
             ],
           ),
         ],
