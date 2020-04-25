@@ -1,10 +1,11 @@
+import 'main.dart';
 import 'package:flutter/material.dart';
 
-class Settings extends StatefulWidget {
+class Settings extends StatefulWidget { 
   final String region;
   final bool metric;
-  final Function updateRegion;
-  final Function updateMetric;
+  Function updateRegion;
+  Function updateMetric;
   Settings({this.region, this.metric, this.updateRegion, this.updateMetric});
 
   @override
@@ -19,6 +20,7 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   String region;
   bool metric;
+
 
   _SettingsState({this.region, this.metric});
 
@@ -40,11 +42,12 @@ class _SettingsState extends State<Settings> {
           new Column(
             children: <Widget>[
               new DropdownButton<String>(
-                value: widget.region,
+                value: this.region,
                 onChanged: (String newValue) {
                   setState(() {
                     this.region = newValue;
                   });
+                  widget.updateRegion(newValue);
                 },
                 items: <String>['North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
                   return new DropdownMenuItem<String>(

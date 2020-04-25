@@ -66,8 +66,18 @@ class _MainScreenState extends State<MainScreen> {
               Navigator.push(
                 ctxt,
                 MaterialPageRoute(builder: (ctxt) => new Settings(
-                  region: "Asia",
+                  region: this.chosenRegion,
                   metric: false,
+                  updateRegion: (newRegion) {
+                    setState(() {
+                      this.chosenRegion = newRegion;
+                    });
+                  },
+                  updateMetric: (newRegion) {
+                    setState(() {
+                      this.chosenRegion = newRegion;
+                    });
+                  },
                 )),
               );
             }
