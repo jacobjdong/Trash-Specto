@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
   final String region;
-  final int metric;
+  final bool metric;
   final Function updateRegion;
   final Function updateMetric;
   Settings({this.region, this.metric, this.updateRegion, this.updateMetric});
 
   @override
-  _SettingsState createState() => _SettingsState();
+  State<StatefulWidget> createState() {
+    return _SettingsState(
+      region: this.region,
+      metric: this.metric
+    );
+  }
 }
 
 class _SettingsState extends State<Settings> {
+  String region;
+  bool metric;
 
-
+  _SettingsState({this.region, this.metric});
 
   @override
   Widget build (BuildContext ctxt) {
