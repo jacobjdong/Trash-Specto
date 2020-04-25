@@ -27,7 +27,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
         child: Container(
           child: Row(
             children: <Widget>[
-              customSlider(
+              Expanded(child: customSlider(
                 updateVal: (value) {
                   setState(() {
                     _value = value;
@@ -36,7 +36,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
                 question: "HELLO",
                 min: 0,
                 max: 7
-              ),
+              )),
                 
               Text(
                 '0',
