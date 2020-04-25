@@ -10,7 +10,7 @@ class ScreenFoodWaste extends StatefulWidget {
 }
 
 class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
-  double _eatingOut = 4, _diet = 7, _compostingFreq = 0;
+  double _eatingOut = 4, _diet = 3, _compostingFreq = 0;
 
   @override
   Widget build (BuildContext ctxt) {
