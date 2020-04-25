@@ -7,7 +7,8 @@ class ScreenFoodWaste extends StatefulWidget {
 }
 
 class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
-  double _eatingOut = 4, _diet = 3, _compostingFreq = 0;
+  double _eatingOut = 4,  _compostingFreq = 0;
+  String _diet;
   List<Widget> cards;
 
   void removeTop() {
@@ -16,11 +17,18 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     });
   }
 
+  void updateDiet(newValue) {
+    setState(() {
+      this._diet = newValue;
+    });
+    print(newValue);
+    print(this._diet);
+  }
+
   @override
   void initState() {
     super.initState();
     cards = getCards();
-    print(cards);
   }
    
   @override
@@ -40,238 +48,65 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
         child: Stack(
           alignment: Alignment.center,
           children: cards,
-              // ]
             ),
-            // Container(
-            //   padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-            //   child: Stack(
-            //     overflow: Overflow.visible,
-            //     children: <Widget>[
-            //       Container(
-            //         padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-            //         width: 300.0,
-            //         height: 400.0,
-            //         decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.circular(10.0),
-            //           color: Colors.orange,
-            //         ),
-            //         child: customSlider(
-            //           updateVal: (value) {
-            //             setState(() {
-            //               this._eatingOut = value;
-            //             });
-            //           },
-            //           question: "Testing question",
-            //           min: 1,
-            //           max: 14,
-            //           showerTime: this._eatingOut,
-            //         ),
-            //       ),
-            //       Container(
-            //         padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-            //         width: 300.0,
-            //         height: 400.0,
-            //         decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.circular(10.0),
-            //           color: Colors.orange,
-            //         ),
-            //         child: customSlider(
-            //           updateVal: (value) {
-            //             setState(() {
-            //               this._eatingOut = value;
-            //             });
-            //           },
-            //           question: "Another question",
-            //           min: 1,
-            //           max: 14,
-            //           showerTime: this._eatingOut,
-            //         ),
-            //       ),
-            //     ]
-            //   ),
-            // ),
-            // Text(
-            //     'How often do you eat out? (per week)',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: <Widget>[
-            //     Text(
-            //     '0',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //       color: Color(0xff778BF3),
-            //     ),
-            //   ),
-            //   Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: <Widget>[
-            //       SliderTheme(
-            //        data: SliderTheme.of(ctxt).copyWith(
-            //         activeTrackColor: Color(0xff778BF3),
-            //         inactiveTrackColor: Color(0xffd5e1fd),
-            //         trackShape: RectangularSliderTrackShape(),
-            //         trackHeight: 4.0,
-            //         thumbColor: Color(0xff778BF3),
-            //         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-            //         overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-            //       ),
-            //       child: Slider(
-            //         value: _eatingOut,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             _eatingOut = value;
-            //           });
-            //         },
-            //         min: 0,
-            //         max: 14,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            //   Text(
-            //     '14',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //       color: Color(0xff778BF3),
-            //     ),
-            //   ),
-            //   ],
-            // ),
-            // Text(
-            //     '\n\nWhat type of dietary restrictions do you conform to?',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: <Widget>[
-            //     Text(
-            //     'Vegan',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //       color: Color(0xff778BF3),
-            //     ),
-            //   ),
-            //   Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: <Widget>[
-            //       SliderTheme(
-            //        data: SliderTheme.of(ctxt).copyWith(
-            //         activeTrackColor: Color(0xff778BF3),
-            //         inactiveTrackColor: Color(0xffd5e1fd),
-            //         trackShape: RectangularSliderTrackShape(),
-            //         trackHeight: 4.0,
-            //         thumbColor: Color(0xff778BF3),
-            //         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-            //         overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-            //       ),
-            //       child: Slider(
-            //         divisions: 5,
-            //         value: _diet,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             _diet = value;
-            //           });
-            //         },
-            //         min: 0,
-            //         max: 5,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            //   Text(
-            //     'No Restrictions',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //       color: Color(0xff778BF3),
-            //     ),
-            //   ),
-            //   ],
-            // ),
-            // Text(
-            //     '\n\nHow often do you compost your food waste? (days per week)',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //     ),
-            //   ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: <Widget>[
-            //     Text(
-            //     '0',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //       color: Color(0xff778BF3),
-            //     ),
-            //   ),
-            //   Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: <Widget>[
-            //       SliderTheme(
-            //        data: SliderTheme.of(ctxt).copyWith(
-            //         activeTrackColor: Color(0xff778BF3),
-            //         inactiveTrackColor: Color(0xffd5e1fd),
-            //         trackShape: RectangularSliderTrackShape(),
-            //         trackHeight: 4.0,
-            //         thumbColor: Color(0xff778BF3),
-            //         thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-            //         overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
-            //       ),
-            //       child: Slider(
-            //         divisions: 7,
-            //         value: _compostingFreq,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             _compostingFreq = value;
-            //           });
-            //         },
-            //         min: 0,
-            //         max: 7,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            //   Text(
-            //     '7',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //       fontSize: 16,
-            //       fontWeight: FontWeight.w700,
-            //       color: Color(0xff778BF3),
-            //     ),
-            //   ),
-            //   ],
-            // ),
-          //],
-        //),
       )
     );
   }
 
-
   List<Widget> getCards() {
     List<Widget> cards = new List();
+
+    cards.insert(0,
+      Positioned(
+        top: 60,
+        child: Card(
+          elevation: 10,
+          color: Color.fromARGB(255, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: Container(
+            width: 260.0,
+            height: 350.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'What type of dietary restrictions do you conform to?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                DropdownButton<String>(
+                  value: this._diet,
+                  items: <String>['Vegan', 'Vegetarian', 'Pescatarian', 'None'].map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String newValue) {
+                    updateDiet(newValue);
+                  },
+                ),
+                RaisedButton(
+                  child: Text(
+                    'Remove!',
+                    style: TextStyle(fontSize: 20)
+                  ),
+                  onPressed: () {
+                    removeTop();
+                  }
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
 
     cards.insert(0,
       Positioned(
@@ -296,7 +131,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       this._eatingOut = value;
                     });
                   },
-                  question: "Testing question",
+                  question: "How often do you Eat out?",
                   min: 1,
                   max: 14,
                   showerTime: this._eatingOut,
@@ -339,10 +174,10 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       this._eatingOut = value;
                     });
                   },
-                  question: "Testing question",
-                  min: 1,
-                  max: 14,
-                  showerTime: this._eatingOut,
+                  question: "How often do you compost your food waste? (days per week)'",
+                  min: 0,
+                  max: 7,
+                  showerTime: this._compostingFreq,
                 ),
                 RaisedButton(
                   child: Text(
