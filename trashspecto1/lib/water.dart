@@ -68,7 +68,10 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                   customSlider(
+                  SizedBox(
+                    height: 100,
+                  ),
+                  customSlider(
                     updateVal: (value) {
                       setState(() {
                         this._toiletFreq = value;
@@ -80,16 +83,21 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     showerTime: this._toiletFreq,
                     units: "time a day",
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
+                    )
                   ),
                 ],
               ),
@@ -117,7 +125,10 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                   customSlider(
+                  SizedBox(
+                    height: 100,
+                  ),
+                  customSlider(
                     updateVal: (value) {
                       setState(() {
                         this._showerFreq = value;
@@ -129,16 +140,21 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     showerTime: this._showerFreq,
                     units: "times a week"
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
+                    )
                   ),
                 ],
               ),
@@ -167,7 +183,10 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                   customSlider(
+                  SizedBox(
+                    height: 100,
+                  ),
+                  customSlider(
                     updateVal: (value) {
                       setState(() {
                         this._showerTime = value;
@@ -179,17 +198,22 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     showerTime: this._showerTime,
                     units: "minutes"
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                      _background = "images/laundrylayout.png";
-                    }
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                          _background = "images/laundrylayout.png";
+                        }
+                      ),
+                    )
                   ),
                 ],
               ),
@@ -217,6 +241,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(
+                    height: 100,
+                  ),
                   Text(
                     'How do you wash your dishes?',
                     textAlign: TextAlign.center,
@@ -243,17 +270,22 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       );
                     }).toList(),
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
-                  ),
+                  )
                 ],
               ),
             ),
@@ -281,7 +313,10 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                   customSlider(
+                  SizedBox(
+                    height: 100,
+                  ),
+                  customSlider(
                     updateVal: (value) {
                       setState(() {
                         this._clothesFreq = value;
@@ -293,17 +328,22 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     showerTime: this._clothesFreq,
                     units: "times a month"
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                      _background = "images/lawnlayout.png";
-                    }
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                          _background = "images/lawnlayout.png";
+                        }
+                      ),
+                    )
                   ),
                 ],
               ),
@@ -331,7 +371,10 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                   customSlider(
+                  SizedBox(
+                    height: 100,
+                  ),
+                  customSlider(
                     updateVal: (value) {
                       setState(() {
                         this._lawnSize = value;
@@ -343,17 +386,22 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     showerTime: this._lawnSize,
                     units: "meters^2"
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Submit!',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
-                  ),
+                  )
                 ],
               ),
             ),
