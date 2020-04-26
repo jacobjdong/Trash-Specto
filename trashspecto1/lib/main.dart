@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'splashScreen.dart';
-import 'package:flutter/services.dart';
 import 'settings.dart';
 import 'food.dart';
 import 'trash.dart';
@@ -13,7 +11,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return new MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Color(0xff5361c2),
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
         
         fontFamily: 'Georgia'
       ),
-      home: SplashScreen(),
+      home: new MainScreen(),
     );
   }
 }

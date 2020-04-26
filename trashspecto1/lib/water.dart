@@ -72,9 +72,6 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 100,
-                  ),
                   customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -130,9 +127,6 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 100,
-                  ),
                   customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -189,9 +183,6 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 100,
-                  ),
                   customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -248,8 +239,20 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  Align(
+          alignment: Alignment.topRight,
+          child: FloatingActionButton(
+            heroTag: "helpBut",
+            onPressed: () {
+
+            },
+            child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
+            mini: true,
+            backgroundColor: Color(0xffffffff),
+          ),
+        ),
                   SizedBox(
-                    height: 100,
+                    height: 60,
                   ),
                   Text(
                     'How do you wash your dishes?',
@@ -329,9 +332,6 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 100,
-                  ),
                   customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -388,9 +388,6 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: 100,
-                  ),
                   customSlider(
                     updateVal: (value) {
                       setState(() {

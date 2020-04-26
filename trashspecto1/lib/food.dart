@@ -75,8 +75,20 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
+                      Align(
+          alignment: Alignment.topRight,
+          child: FloatingActionButton(
+            heroTag: "helpBut",
+            onPressed: () {
+
+            },
+            child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
+            mini: true,
+            backgroundColor: Color(0xffffffff),
+          ),
+        ),
                       SizedBox(
-                        height: 100,
+                        height: 60,
                       ),
                       Text(
                         'Do you have any dietary restrictions?',
@@ -176,9 +188,6 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(
-                        height: 100,
-                      ),
                       customSlider(
                         updateVal: (value) {
                           setState(() {
@@ -240,9 +249,6 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(
-                        height: 100,
-                      ),
                       customSlider(
                         updateVal: (value) {
                           setState(() {
@@ -280,8 +286,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                             }
                           ),
                         ),
-                      )
-                      
+                      ),
                     ],
                   ),
                 ),
@@ -309,7 +314,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       result *= .68;
     }
 
-    result *= (1 - _compostingFreq * .01);
+    result *= (1 - _compostingFreq * .01 + 0.01);
     return result;
   }
 }
