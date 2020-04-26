@@ -6,14 +6,38 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 import 'dart:math';
 
 class AutoDetectPlane extends StatefulWidget {
+  final String state;
+  final double data;
+
+  AutoDetectPlane({this.state, this.data});
+  
   @override
-  _AutoDetectPlaneState createState() => _AutoDetectPlaneState();
+  State<StatefulWidget> createState() {
+    return _AutoDetectPlaneState(
+      state: this.state,
+      data: this.data,
+    );
+  }
 }
 
 class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   ArCoreController arCoreController;
   ArCoreNode node;
   bool placed = false;
+
+  String state;
+  double data;
+
+  _AutoDetectPlaneState({this.state, this.data});
+
+  double getData(type) {
+    if (state == type) {
+      return data;
+    } else {
+      return 0.0;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,9 +62,9 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
 
   void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
     final hit = hits.last;
-    //_spawnTrashPyramid(64240, 80, hit); //Takes kilograms
-    //_spawnPizzaPyramid(15.75, hit);  //Takes pounds
-    _spawnRedBullPyramidGal(2250, hit); //Takes liters
+    _spawnTrashPyramid(getData("trash"), 80, hit); //Takes kilograms
+    _spawnPizzaPyramid(getData("food"), hit);  //Takes pounds
+    _spawnRedBullPyramidGal(getData("water"), hit); //Takes liters
   }
 
   void _spawnTrashPyramid(double trash, int numCubes, ArCoreHitTestResult plane) {
