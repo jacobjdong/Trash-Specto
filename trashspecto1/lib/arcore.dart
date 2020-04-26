@@ -54,7 +54,12 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
             }
           }
         ),
-        title: new Text ("AR Viewer", textAlign: TextAlign.center),
+        title: new Text ("AR Viewer", textAlign: TextAlign.center,
+        style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Colors.white,
+            fontSize: 23.9,
+            fontWeight: FontWeight.bold)),
       ),
         body: Stack(
           children: <Widget>[

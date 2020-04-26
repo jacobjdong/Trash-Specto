@@ -42,7 +42,12 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
               Navigator.pop(ctxt);
             }
           ),
-          title: new Text ("Food Waste Calculator", textAlign: TextAlign.center),
+          title: new Text ("Food Waste Calculator", textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Colors.white,
+            fontSize: 23.9,
+            fontWeight: FontWeight.bold)),
         ),
         body: Center(
           child: Stack(

@@ -33,7 +33,12 @@ class _SettingsState extends State<Settings> {
             Navigator.pop(ctxt);
           }
         ),
-        title: new Text ("Settings", textAlign: TextAlign.center),
+        title: new Text ("Settings", textAlign: TextAlign.center,
+        style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Colors.white,
+            fontSize: 23.9,
+            fontWeight: FontWeight.bold)),
       ),
       body: new ListView(
        children: [

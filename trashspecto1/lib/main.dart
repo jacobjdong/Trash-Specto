@@ -48,7 +48,15 @@ class _MainScreenState extends State<MainScreen> {
       child: new Scaffold(
         backgroundColor: Colors.transparent,
         appBar: new AppBar(
-          title: new Center(child: new Text ("Trash Specto", textAlign: TextAlign.center)),
+          title: new Center(child: new Text (
+            "Trash Specto", 
+            textAlign: TextAlign.center,
+            style: TextStyle(
+            fontFamily: 'Montserrat',
+            color: Colors.white,
+            fontSize: 23.9,
+            fontWeight: FontWeight.bold)
+      )),
         ),
         body: new Row(
           mainAxisAlignment: MainAxisAlignment.center,
