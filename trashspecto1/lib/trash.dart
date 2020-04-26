@@ -11,6 +11,8 @@ class _ScreenTrashState extends State<ScreenTrash> {
   double _recyclePercent = 10, _clothing = 1, _compostPercent = 10;
   String _shoppingType;
   String newValue;
+  String errorString = '';
+
   List<Widget> cards;
   int visible = 4;
 
@@ -36,7 +38,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
               Navigator.pop(ctxt);
             }
           ),
-          title: new Text ("Screen Garbage", textAlign: TextAlign.center),
+          title: new Text ("Overall Garbage Calculator", textAlign: TextAlign.center),
         ),
         body: Center(
           child: Stack(
@@ -83,6 +85,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     max: 100,
                     showerTime: this._recyclePercent,
                     units: "%",
+                    unit: "%",
                   ),
                   Expanded(
                     child: Align(
@@ -140,7 +143,8 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     min: 0,
                     max: 100,
                     showerTime: this._compostPercent,
-                    units: "%"
+                    units: "%",
+                    unit: "%",
                   ),
                   Expanded(
                     child: Align(
@@ -198,20 +202,23 @@ class _ScreenTrashState extends State<ScreenTrash> {
                   DropdownButton<String>(
                     hint: Text('Average'),
                     onChanged: (String changedValue) {
-                      newValue = changedValue;
-                      _shoppingType = changedValue;
                       setState(() {
-                        newValue;
-                        print(newValue);
+                        _shoppingType = changedValue;
                       });
                     },
-                    value: newValue,
+                    value: _shoppingType,
                     items: <String>['Frugal', 'Average', 'Shopaholic'].map((String value) {
                       return new DropdownMenuItem<String>(
                         value: value,
                         child: new Text(value),
                       );
                     }).toList(),
+                  ),
+                  Text(
+                    errorString,
+                    style: TextStyle(
+                      color: Colors.red,
+                    )
                   ),
                   Expanded(
                     child: Align(
@@ -222,9 +229,15 @@ class _ScreenTrashState extends State<ScreenTrash> {
                           style: TextStyle(fontSize: 20)
                         ),
                         onPressed: () {
-                          setState(() {
-                            visible--;
-                          });
+                          if (_shoppingType == null) {
+                            setState(() {
+                              errorString = "Please select a value";
+                            });
+                          } else {
+                            setState(() {
+                              visible--;
+                            });
+                          }
                           
                         }
                       ),
@@ -269,7 +282,8 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     min: 0,
                     max: 100,
                     showerTime: this._clothing,
-                    units: "%"
+                    units: "%",
+                    unit: "%",
                   ),
                   Expanded(
                     child: Align(
@@ -287,11 +301,10 @@ class _ScreenTrashState extends State<ScreenTrash> {
                             ctxt,
                             MaterialPageRoute(
                               builder: (ctxt) => AutoDetectPlane(
-                                state: "trash", 
-                                data: calculateTrash()
-                              ),
-                            )
-                          );
+                              state: "trash", 
+                              data: calculateTrash()
+                            ),
+                          ));
                         }
                       ),
                     ),

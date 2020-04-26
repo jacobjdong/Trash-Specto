@@ -4,12 +4,13 @@ class customSlider extends StatefulWidget {
   final Function updateVal;
   final String question;
   final String units;
+  final String unit;
   final double showerTime;
   final int min;
   final int max;
   final bool metric;
 
-  customSlider({this.updateVal, this.question, this.showerTime, this.units, this.min, this.max, this.metric,});
+  customSlider({this.updateVal, this.question, this.showerTime, this.units, this.unit, this.min, this.max, this.metric,});
 
   @override
   State<StatefulWidget> createState() {
@@ -25,7 +26,6 @@ class _customSliderState extends State<customSlider> {
   int min;
   int max;
   double showerTime;
-
 
   _customSliderState({this.min, this.max, this.showerTime});
 
@@ -94,7 +94,7 @@ class _customSliderState extends State<customSlider> {
           ],
         ),
         Text(
-          this.showerTime.toInt().toString() + ' ' + widget.units,
+          this.showerTime.toInt().toString() + ' ' + (this.showerTime.toInt() == 1 ? widget.unit : widget.units),
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,

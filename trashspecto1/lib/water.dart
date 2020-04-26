@@ -11,8 +11,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
   double _showerTime = 10, _showerFreq = 7, _clothesFreq = 4, _lawnSize = 50, _toiletFreq = 3;
   String _dishwasherType;
   String newValue;
+  String errorString = '';
+
   List<Widget> cards;
   int visible = 6;
+  
 
   dynamic _background = "images/bathroomlayout.png";
   
@@ -36,7 +39,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
               Navigator.pop(ctxt);
             }
           ),
-          title: new Text ("Screen Wastewater", textAlign: TextAlign.center),
+          title: new Text ("Wastewater Calculator", textAlign: TextAlign.center),
         ),
         body: Center(
           child: Stack(
@@ -82,7 +85,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
-                    units: "time(s) a day",
+                    units: "times a day",
+                    unit: "time a day",
                   ),
                   Expanded(
                     child: Align(
@@ -139,7 +143,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 14,
                     showerTime: this._showerFreq,
-                    units: "time(s) a week"
+                    units: "times a week",
+                    unit: "time a week",
                   ),
                   Expanded(
                     child: Align(
@@ -197,7 +202,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
-                    units: "minute(s)"
+                    units: "minutes",
+                    unit: "minute",
                   ),
                   Expanded(
                     child: Align(
@@ -256,20 +262,23 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   DropdownButton<String>(
                     hint: Text('Hand or Machine'),
                     onChanged: (String changedValue) {
-                      newValue = changedValue;
-                      _dishwasherType = changedValue;
                       setState(() {
-                        newValue;
-                        print(newValue);
+                        _dishwasherType = changedValue;
                       });
                     },
-                    value: newValue,
+                    value: _dishwasherType,
                     items: <String>['Hand', 'Machine'].map((String value) {
                       return new DropdownMenuItem<String>(
                         value: value,
                         child: new Text(value),
                       );
                     }).toList(),
+                  ),
+                  Text(
+                    errorString,
+                    style: TextStyle(
+                      color: Colors.red,
+                    )
                   ),
                   Expanded(
                     child: Align(
@@ -280,13 +289,19 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                           style: TextStyle(fontSize: 20)
                         ),
                         onPressed: () {
-                          setState(() {
-                            visible--;
-                          });
+                          if (_dishwasherType == null) {
+                            setState(() {
+                              errorString = "Please select a value";
+                            });
+                          } else {
+                            setState(() {
+                              visible--;
+                            });
+                          }
                         }
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -327,7 +342,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 8,
                     showerTime: this._clothesFreq,
-                    units: "time(s) a month"
+                    units: "times a month",
+                    unit: "time a month"
                   ),
                   Expanded(
                     child: Align(
@@ -386,7 +402,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 100,
                     showerTime: this._lawnSize,
-                    units: "meter(s)\u00B2"
+                    units: "meters\u00B2",
+                    unit: "meter\u00B2",
                   ),
                   Expanded(
                     child: Align(

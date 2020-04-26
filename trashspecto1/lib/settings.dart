@@ -60,7 +60,7 @@ class _SettingsState extends State<Settings> {
                     });
                     widget.updateRegion(newValue);
                   },
-                  items: <String>['North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
+                  items: <String>['Oceania','North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
                     return new DropdownMenuItem<String>(
                       value: value,
                       child: new Text(value),
