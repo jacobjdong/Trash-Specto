@@ -59,70 +59,84 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           ),
-          child: Container(
-            width: 260.0,
-            height: 350.0,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'What type of dietary restrictions do you conform to?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  DropdownButton<String>(
-                    hint: Text('Diet'),
-                    onChanged: (String changedValue) {
-                      newValue = changedValue;
-                      _diet = changedValue;
-                      setState(() {
-                        if (_diet == 'Vegan' || _diet == 'Vegetarian') {
-                          _background = "images/foodlayout1noanything.png";
-                        }
-                        else if (_diet == 'No Beef') {
-                          _background = "images/foodlayout1nobeef.png";
-                        }
-                        else if (_diet == 'No Pork') {
-                          _background = "images/foodlayout1nopork.png";
-                        }
-                        else if (_diet == 'No Beef or Pork') {
-                          _background = "images/foodlayout1nobeeforpork.png";
-                        }
-                        else {
-                          _background = "images/foodlayout1norestrictions.png";
-                        }
-                        newValue;
-                        print(newValue);
-                      });
-                    },
-                    value: newValue,
-                    items: <String>['Vegan', 'Vegetarian', 'No Beef', 'No Pork', 'No Beef or Pork', 'No Restrictions'].map((String value) {
-                      return new DropdownMenuItem<String>(
-                        value: value,
-                        child: new Text(value),
-                      );
-                    }).toList(),
-                  ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState (() {
-                        visible--;
-                      });
-                    }
-                  ),
-                ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Container(
+                width: 260.0,
+                height: 350.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 100,
+                      ),
+                      Text(
+                        'What type of dietary restrictions do you conform to?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      DropdownButton<String>(
+                        hint: Text('Diet'),
+                        onChanged: (String changedValue) {
+                          newValue = changedValue;
+                          _diet = changedValue;
+                          setState(() {
+                            if (_diet == 'Vegan' || _diet == 'Vegetarian') {
+                              _background = "images/foodlayout1noanything.png";
+                            }
+                            else if (_diet == 'No Beef') {
+                              _background = "images/foodlayout1nobeef.png";
+                            }
+                            else if (_diet == 'No Pork') {
+                              _background = "images/foodlayout1nopork.png";
+                            }
+                            else if (_diet == 'No Beef or Pork') {
+                              _background = "images/foodlayout1nobeeforpork.png";
+                            }
+                            else {
+                              _background = "images/foodlayout1norestrictions.png";
+                            }
+                            newValue;
+                            print(newValue);
+                          });
+                        },
+                        value: newValue,
+                        items: <String>['Vegan', 'Vegetarian', 'No Beef', 'No Pork', 'No Beef or Pork', 'No Restrictions'].map((String value) {
+                          return new DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: RaisedButton(
+                            child: Text(
+                              'Next',
+                              style: TextStyle(fontSize: 20)
+                            ),
+                            onPressed: () {
+                              setState (() {
+                                visible--;
+                              });
+                            }
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                )
               ),
-            ),
+            ]
           ),
         ),
       ),
@@ -137,43 +151,56 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           ),
-          child: Container(
-            alignment: Alignment.center,
-            width: 260.0,
-            height: 350.0,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                   customSlider(
-                    updateVal: (value) {
-                      setState(() {
-                        this._eatingOut = value;
-                      });
-                    },
-                    question: "How often do you eat out?",
-                    min: 1,
-                    max: 14,
-                    showerTime: this._eatingOut,
-                    units: "times a week"
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Container(
+                width: 260.0,
+                height: 350.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 100,
+                      ),
+                      customSlider(
+                        updateVal: (value) {
+                          setState(() {
+                            this._eatingOut = value;
+                          });
+                        },
+                        question: "How often do you eat out?",
+                        min: 1,
+                        max: 14,
+                        showerTime: this._eatingOut,
+                        units: "times a week"
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: RaisedButton(
+                            child: Text(
+                              'Next',
+                              style: TextStyle(fontSize: 20)
+                            ),
+                            onPressed: () {
+                              setState (() {
+                                visible--;
+                              });
+                            }
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState (() {
-                        visible--;
-                      });
-                    }
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
+            ]
+          )
         ),
       ),
     );
@@ -187,42 +214,58 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           ),
-          child: Container(
-            width: 260.0,
-            height: 350.0,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                   customSlider(
-                    updateVal: (value) {
-                      setState(() {
-                        this._eatingOut = value;
-                      });
-                    },
-                    question: "How much food do you compost?",
-                    min: 0,
-                    max: 100,
-                    showerTime: this._compostingFreq,
-                    units: "%"
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Container(
+                width: 260.0,
+                height: 350.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 100,
+                      ),
+                      customSlider(
+                        updateVal: (value) {
+                          setState(() {
+                            this._eatingOut = value;
+                          });
+                        },
+                        question: "How much food do you compost?",
+                        min: 0,
+                        max: 100,
+                        showerTime: this._compostingFreq,
+                        units: "%",
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: RaisedButton(
+                            child: Text(
+                              'Submit!',
+                              style: TextStyle(fontSize: 20)
+                            ),
+                            onPressed: () {
+                              setState (() {
+                                visible--;
+                              });
+                            }
+                          ),
+                        ),
+                      )
+                      
+                    ],
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
-                    ),
-                    onPressed: () {
-                      setState (() {
-                        visible--;
-                      });
-                    }
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
+              
+            ]
+          )
         ),
       ),
     );
