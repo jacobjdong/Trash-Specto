@@ -39,12 +39,21 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext ctxt) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Screen Garbage'),
+        appBar: new AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.home, color: Color(0xff778BF3)),
+          onPressed: () {
+            while (Navigator.canPop(ctxt)) {
+              Navigator.pop(ctxt);
+            }
+          }
         ),
+        title: new Text ("AR Viewer", textAlign: TextAlign.center),
+      ),
         body: ArCoreView(
           onArCoreViewCreated: _onArCoreViewCreated,
           enableUpdateListener: true,
