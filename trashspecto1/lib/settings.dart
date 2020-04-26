@@ -76,7 +76,7 @@ class _SettingsState extends State<Settings> {
                   height: 50,
                 ),
                 Text(
-                  'Imperial Units',
+                  'Metric Units',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
