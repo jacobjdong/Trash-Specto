@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
 class ScreenTrash extends StatefulWidget {

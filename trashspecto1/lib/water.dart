@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
 class ScreenWastewater extends StatefulWidget {
@@ -88,17 +89,19 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
-                        onPressed: () {
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Next',
+                            background: Color(0xff5361c2),
+                            onPressed: () {
                           setState(() {
                             visible--;
                           });
                         }
                       ),
+                      
                     )
                   ),
                 ],
@@ -143,12 +146,13 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
-                        onPressed: () {
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Next',
+                            background: Color(0xff5361c2),
+                            onPressed: () {
                           setState(() {
                             visible--;
                           });
@@ -199,12 +203,13 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
-                        onPressed: () {
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Next',
+                            background: Color(0xff5361c2),
+                            onPressed: () {
                           setState(() {
                             visible--;
                           });
@@ -290,11 +295,12 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: RaisedButton(
-                            child: Text(
-                              'Next',
-                              style: TextStyle(fontSize: 20)
-                            ),
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Next',
+                            background: Color(0xff5361c2),
                             onPressed: () {
                               if (_dishwasherType == null) {
                                 setState(() {
@@ -354,18 +360,19 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
+                      child: NiceButton(
+                        width: 255,
+                        elevation: 8.0,
+                        radius: 52.0,
+                        text: 'Next',
+                        background: Color(0xff5361c2),
                         onPressed: () {
                           setState(() {
                             visible--;
                           });
                           _background = "images/lawnlayout.png";
                         }
-                      ),
+                      ),                      
                     )
                   ),
                 ],
@@ -411,26 +418,27 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Submit!',
-                          style: TextStyle(fontSize: 20)
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            visible--;
-                          });
-                          Navigator.push(
-                            ctxt,
-                            MaterialPageRoute(
-                              builder: (ctxt) => AutoDetectPlane(
-                                state: "water", 
-                                data: calculateWater()
-                              ),
-                            )
-                          );
-                        }
-                      ),
+                        child: NiceButton(
+                          width: 255,
+                          elevation: 8.0,
+                          radius: 52.0,
+                          text: 'Submit!',
+                          background: Color(0xff5361c2),
+                          onPressed: () {
+                            setState(() {
+                              visible--;
+                            });
+                            Navigator.push(
+                              ctxt,
+                              MaterialPageRoute(
+                                builder: (ctxt) => AutoDetectPlane(
+                                  state: "water", 
+                                  data: calculateWater()
+                                ),
+                              )
+                            );
+                          }
+                      )
                     ),
                   )
                 ],

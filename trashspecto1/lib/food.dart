@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
-import 'dart:io';
 
 class ScreenFoodWaste extends StatefulWidget {
   @override
@@ -137,11 +137,12 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: RaisedButton(
-                            child: Text(
-                              'Next',
-                              style: TextStyle(fontSize: 20)
-                            ),
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Next',
+                            background: Color(0xff5361c2),
                             onPressed: () {
                               if (_diet == null) {
                                 setState(() {
@@ -204,11 +205,12 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: RaisedButton(
-                            child: Text(
-                              'Next',
-                              style: TextStyle(fontSize: 20)
-                            ),
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Next',
+                            background: Color(0xff5361c2),
                             onPressed: () {
                               setState (() {
                                 visible--;
@@ -265,11 +267,12 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: RaisedButton(
-                            child: Text(
-                              'Submit!',
-                              style: TextStyle(fontSize: 20)
-                            ),
+                          child: NiceButton(
+                            width: 255,
+                            elevation: 8.0,
+                            radius: 52.0,
+                            text: 'Submit!',
+                            background: Color(0xff5361c2),
                             onPressed: () {
                               setState (() {
                                 visible--;
