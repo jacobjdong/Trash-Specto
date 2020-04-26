@@ -177,7 +177,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         min: 1,
                         max: 14,
                         showerTime: this._eatingOut,
-                        units: "times a week"
+                        units: "time(s) a week"
                       ),
                       Expanded(
                         child: Align(

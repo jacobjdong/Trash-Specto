@@ -44,6 +44,14 @@ class _SettingsState extends State<Settings> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new SizedBox(height: 50),
+                Text(
+                  'Geographic Region',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 new DropdownButton<String>(
                   value: this.region,
                   onChanged: (String newValue) {
@@ -59,6 +67,17 @@ class _SettingsState extends State<Settings> {
                     );
                   }).toList(),
                 ),
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'Imperial Units',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 Switch(
                   value: this.metric,
                   onChanged: (value) {
@@ -67,8 +86,9 @@ class _SettingsState extends State<Settings> {
                     });
                     widget.updateMetric(value);
                   },
-                  activeTrackColor: Colors.lightGreenAccent,
-                  activeColor: Colors.green,
+                  activeTrackColor: Color(0xffabeca0),
+                  activeColor: Color(0xff7eBB76),
+                  autofocus: false,
                 ), 
                 
               ],
