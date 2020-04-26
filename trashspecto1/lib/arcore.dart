@@ -100,6 +100,10 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     );
   }
 
+  void _clear() {
+    arCoreController.removeNode(nodeName: null);
+  }
+
   void _day() {
     multiplier = 1;
     walle = 1;
@@ -294,7 +298,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }*/
 
   void _placeCubeAtPos(vector.Vector3 v, double size) async {
-    final ByteData textureBytes = await rootBundle.load('assets/trashcube.png');
+    final ByteData textureBytes = await rootBundle.load('images/trashcube.png');
     final material = ArCoreMaterial(
         roughness: 1,
         color: Color.fromARGB(255, 66, 134, 244),
@@ -330,7 +334,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   void _placePizzaAtPos(vector.Vector3 v) async {
-    final ByteData textureBytes = await rootBundle.load('assets/pizzabox.png');
+    final ByteData textureBytes = await rootBundle.load('images/pizzabox.png');
     final material = ArCoreMaterial(
       color: Color.fromARGB(255, 66, 134, 244),
       textureBytes: textureBytes.buffer.asUint8List(),
