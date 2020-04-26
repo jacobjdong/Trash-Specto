@@ -11,7 +11,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
   double _eatingOut = 4,  _compostingFreq = 0;
   String _diet;
   String newValue;
-  String errorString;
+  String errorString = '';
   List<Widget> cards;
   int visible = 3;
 
@@ -116,34 +116,33 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         }).toList(),
                       ),
                       Text(
-                    errorString,
-                    style: TextStyle(
-                      color: Colors.red,
-                    )
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
-                        onPressed: () {
-                          if (_diet == null) {
-                            setState(() {
-                              errorString = "Please select a value";
-                            });
-                          } else {
-                            setState(() {
-                              visible--;
-                            });
-                          }
-                          
-                        }
+                        errorString,
+                        style: TextStyle(
+                          color: Colors.red,
+                        )
                       ),
-                    ),
-                  ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: RaisedButton(
+                            child: Text(
+                              'Next',
+                              style: TextStyle(fontSize: 20)
+                            ),
+                            onPressed: () {
+                              if (_diet == null) {
+                                setState(() {
+                                  errorString = "Please select a value";
+                                });
+                              } else {
+                                setState(() {
+                                  visible--;
+                                });
+                              }
+                            }
+                          ),
+                        ),
+                      ),
                     ],
                   )
                 )

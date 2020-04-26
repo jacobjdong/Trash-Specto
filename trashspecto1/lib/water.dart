@@ -11,8 +11,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
   double _showerTime = 10, _showerFreq = 7, _clothesFreq = 4, _lawnSize = 50, _toiletFreq = 3;
   String _dishwasherType;
   String newValue;
+  String errorString = '';
+
   List<Widget> cards;
   int visible = 6;
+  
 
   dynamic _background = "images/bathroomlayout.png";
   
@@ -259,20 +262,23 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                   DropdownButton<String>(
                     hint: Text('Hand or Machine'),
                     onChanged: (String changedValue) {
-                      newValue = changedValue;
-                      _dishwasherType = changedValue;
                       setState(() {
-                        newValue;
-                        print(newValue);
+                        _dishwasherType = changedValue;
                       });
                     },
-                    value: newValue,
+                    value: _dishwasherType,
                     items: <String>['Hand', 'Machine'].map((String value) {
                       return new DropdownMenuItem<String>(
                         value: value,
                         child: new Text(value),
                       );
                     }).toList(),
+                  ),
+                  Text(
+                    errorString,
+                    style: TextStyle(
+                      color: Colors.red,
+                    )
                   ),
                   Expanded(
                     child: Align(
@@ -283,13 +289,19 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                           style: TextStyle(fontSize: 20)
                         ),
                         onPressed: () {
-                          setState(() {
-                            visible--;
-                          });
+                          if (_dishwasherType == null) {
+                            setState(() {
+                              errorString = "Please select a value";
+                            });
+                          } else {
+                            setState(() {
+                              visible--;
+                            });
+                          }
                         }
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
