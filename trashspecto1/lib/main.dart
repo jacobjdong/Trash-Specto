@@ -47,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
       child: new Scaffold(
         backgroundColor: Colors.transparent,
         appBar: new AppBar(
-          title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
+          title: new Center(child: new Text ("Trash Specto", textAlign: TextAlign.center)),
         ),
         body: new Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -117,6 +117,7 @@ class _MainScreenState extends State<MainScreen> {
                 );
               }
             ),
+            SizedBox(height:120),
               ]
             ),
           ]
