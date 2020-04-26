@@ -37,58 +37,91 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext ctxt) {
   
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image:AssetImage("images/homepage.png"),
+          fit: BoxFit.cover
+        ),
       ),
-      body: new Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        
-        children: <Widget>[
-          new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget> [
-          RaisedButton(
+      child: new Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: new AppBar(
+          title: new Center(child: new Text ("Home Page", textAlign: TextAlign.center)),
+        ),
+        body: new Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          
+          children: <Widget>[
+            new Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget> [
+            RaisedButton(
             child: Text(
-              'Start!',
+              'Overall Garbage',
               style: TextStyle(fontSize: 20)
             ),
             onPressed: () {
               Navigator.push(
                 ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenOne()),
+                MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
               );
             }
           ),
           RaisedButton(
             child: Text(
-              'Settings',
+              'Wastewater',
               style: TextStyle(fontSize: 20)
             ),
             onPressed: () {
               Navigator.push(
                 ctxt,
-                MaterialPageRoute(builder: (ctxt) => new Settings(
-                  region: this.chosenRegion,
-                  metric: this.metric,
-                  updateRegion: (newRegion) {
-                    setState(() {
-                      this.chosenRegion = newRegion;
-                    });
-                  },
-                  updateMetric: (value) {
-                    setState(() {
-                      this.metric = value;
-                    });
-                  },
-                )),
+                MaterialPageRoute(builder: (ctxt) => ScreenWastewater()),
               );
             }
           ),
-            ]
+          RaisedButton(
+            child: Text(
+              'Food Waste',
+              style: TextStyle(fontSize: 20)
+            ),
+            onPressed: () {
+              Navigator.push(
+                ctxt,
+                MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste()),
+              );
+            }
           ),
-        ]
-      )
+            RaisedButton(
+              child: Text(
+                'Settings',
+                style: TextStyle(fontSize: 20)
+              ),
+              onPressed: () {
+                Navigator.push(
+                  ctxt,
+                  MaterialPageRoute(builder: (ctxt) => new Settings(
+                    region: this.chosenRegion,
+                    metric: this.metric,
+                    updateRegion: (newRegion) {
+                      setState(() {
+                        this.chosenRegion = newRegion;
+                      });
+                    },
+                    updateMetric: (value) {
+                      setState(() {
+                        this.metric = value;
+                      });
+                    },
+                  )),
+                );
+              }
+            ),
+              ]
+            ),
+          ]
+        )
+      ),
     );
   }
 }

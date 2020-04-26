@@ -188,6 +188,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       setState(() {
                         visible--;
                       });
+                      _background = "images/laundrylayout.png";
                     }
                   ),
                 ],
@@ -301,6 +302,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       setState(() {
                         visible--;
                       });
+                      _background = "images/lawnlayout.png";
                     }
                   ),
                 ],
