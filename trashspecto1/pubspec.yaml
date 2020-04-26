@@ -23,6 +23,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  arcore_flutter_plugin:
 
 dev_dependencies:
   flutter_launcher_icons: "^0.7.3"
@@ -46,16 +47,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/foodlayout1noanything.png
-    - images/foodlayout1nobeef.png
-    - images/foodlayout1nopork.png
-    - images/foodlayout1nobeeforpork.png
-    - images/foodlayout1norestrictions.png
-    - images/bathroomlayout.png
-    - images/laundrylayout.png
-    - images/lawnlayout.png
-    - images/homepage.png
-    - images/citylayout.png
+    - images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
