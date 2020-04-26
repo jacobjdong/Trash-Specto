@@ -77,7 +77,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._toiletFreq = value;
                       });
                     },
-                    question: "How often do you flush the toilet? (per day)",
+                    question: "How often do you flush the toilet?",
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
@@ -192,7 +192,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._showerTime = value;
                       });
                     },
-                    question: "How long is your average shower (minutes)",
+                    question: "How long is your average shower?",
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
@@ -380,7 +380,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._lawnSize = value;
                       });
                     },
-                    question: "How large is your grass lawn",
+                    question: "How large is your grass lawn?",
                     min: 0,
                     max: 100,
                     showerTime: this._lawnSize,

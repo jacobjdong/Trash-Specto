@@ -76,7 +76,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         height: 100,
                       ),
                       Text(
-                        'What type of dietary restrictions do you conform to?',
+                        'Do you have any dietary restrictions?',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
@@ -236,7 +236,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                             this._eatingOut = value;
                           });
                         },
-                        question: "How much food do you compost?",
+                        question: "What percentage of your food do you compost?",
                         min: 0,
                         max: 100,
                         showerTime: this._compostingFreq,

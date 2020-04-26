@@ -77,7 +77,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
                         this._recyclePercent = value;
                       });
                     },
-                    question: "What percentage of your waste do you recycle",
+                    question: "What percentage of your waste do you recycle?",
                     min: 0,
                     max: 100,
                     showerTime: this._recyclePercent,
@@ -135,7 +135,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
                         this._compostPercent = value;
                       });
                     },
-                    question: "How much of your food waste do you compost",
+                    question: "What percentage of your food waste do you compost?",
                     min: 0,
                     max: 100,
                     showerTime: this._compostPercent,
@@ -263,7 +263,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
                         this._clothing = value;
                       });
                     },
-                    question: "What percent of your clothing do you donate",
+                    question: "What percentage of your clothing do you donate?",
                     min: 0,
                     max: 100,
                     showerTime: this._clothing,
