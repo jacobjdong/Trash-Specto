@@ -82,7 +82,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
-                    units: "time(s) a day",
+                    units: "times a day",
+                    unit: "time a day",
                   ),
                   Expanded(
                     child: Align(
@@ -139,7 +140,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 14,
                     showerTime: this._showerFreq,
-                    units: "time(s) a week"
+                    units: "times a week",
+                    unit: "time a week",
                   ),
                   Expanded(
                     child: Align(
@@ -197,7 +199,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
-                    units: "minute(s)"
+                    units: "minutes",
+                    unit: "minute",
                   ),
                   Expanded(
                     child: Align(
@@ -327,7 +330,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 8,
                     showerTime: this._clothesFreq,
-                    units: "time(s) a month"
+                    units: "times a month",
+                    unit: "time a month"
                   ),
                   Expanded(
                     child: Align(
@@ -393,7 +397,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 100,
                     showerTime: this._lawnSize,
-                    units: "meter(s)\u00B2"
+                    units: "meters\u00B2",
+                    unit: "meter\u00B2",
                   ),
                   Expanded(
                     child: Align(

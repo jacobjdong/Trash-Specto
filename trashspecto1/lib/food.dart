@@ -11,6 +11,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
   double _eatingOut = 4,  _compostingFreq = 0;
   String _diet;
   String newValue;
+  String errorString;
   List<Widget> cards;
   int visible = 3;
 
@@ -87,29 +88,26 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                       DropdownButton<String>(
                         hint: Text('Diet'),
                         onChanged: (String changedValue) {
-                          newValue = changedValue;
-                          _diet = changedValue;
                           setState(() {
-                            if (_diet == 'Vegan' || _diet == 'Vegetarian') {
+                            if (changedValue == 'Vegan' || changedValue == 'Vegetarian') {
                               _background = "images/foodlayout1noanything.png";
                             }
-                            else if (_diet == 'No Beef') {
+                            else if (changedValue == 'No Beef') {
                               _background = "images/foodlayout1nobeef.png";
                             }
-                            else if (_diet == 'No Pork') {
+                            else if (changedValue == 'No Pork') {
                               _background = "images/foodlayout1nopork.png";
                             }
-                            else if (_diet == 'No Beef or Pork') {
+                            else if (changedValue == 'No Beef or Pork') {
                               _background = "images/foodlayout1nobeeforpork.png";
                             }
                             else {
                               _background = "images/foodlayout1norestrictions.png";
                             }
-                            newValue;
-                            print(newValue);
+                            _diet = changedValue;
                           });
                         },
-                        value: newValue,
+                        value: _diet,
                         items: <String>['Vegan', 'Vegetarian', 'No Beef', 'No Pork', 'No Beef or Pork', 'No Restrictions'].map((String value) {
                           return new DropdownMenuItem<String>(
                             value: value,
@@ -117,22 +115,35 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                           );
                         }).toList(),
                       ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: RaisedButton(
-                            child: Text(
-                              'Next',
-                              style: TextStyle(fontSize: 20)
-                            ),
-                            onPressed: () {
-                              setState (() {
-                                visible--;
-                              });
-                            }
-                          ),
+                      Text(
+                    errorString,
+                    style: TextStyle(
+                      color: Colors.red,
+                    )
+                  ),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
                         ),
+                        onPressed: () {
+                          if (_diet == null) {
+                            setState(() {
+                              errorString = "Please select a value";
+                            });
+                          } else {
+                            setState(() {
+                              visible--;
+                            });
+                          }
+                          
+                        }
                       ),
+                    ),
+                  ),
                     ],
                   )
                 )
@@ -178,7 +189,8 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         min: 1,
                         max: 14,
                         showerTime: this._eatingOut,
-                        units: "time(s) a week"
+                        units: "times a week",
+                        unit: "time a week"
                       ),
                       Expanded(
                         child: Align(
@@ -242,6 +254,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         max: 100,
                         showerTime: this._compostingFreq,
                         units: "%",
+                        unit: "%",
                       ),
                       Expanded(
                         child: Align(
