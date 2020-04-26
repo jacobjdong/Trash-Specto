@@ -7,8 +7,10 @@ class customSlider extends StatefulWidget {
   final double showerTime;
   final int min;
   final int max;
+  final bool metric;
+  final bool discreet; 
 
-  customSlider({this.updateVal, this.question, this.showerTime, this.units, this.min, this.max});
+  customSlider({this.updateVal, this.question, this.showerTime, this.units, this.min, this.max, this.metric, this.discreet});
 
   @override
   State<StatefulWidget> createState() {
@@ -25,7 +27,41 @@ class _customSliderState extends State<customSlider> {
   int max;
   double showerTime;
 
+
   _customSliderState({this.min, this.max, this.showerTime});
+
+  Slider getSlider() {
+    if (widget.discreet) {
+      return (
+        Slider(
+          value: showerTime,
+          divisions: (this.max - this.min),
+          onChanged: (value) { 
+            setState(() {
+              showerTime = value;
+            });
+            widget.updateVal(value);
+          },
+          min: this.min.toDouble(),
+          max: this.max.toDouble(),
+          )
+        );
+    } else {
+      return (
+        Slider(
+          value: showerTime,
+          onChanged: (value) { 
+            setState(() {
+              showerTime = value;
+            });
+            widget.updateVal(value);
+          },
+          min: this.min.toDouble(),
+          max: this.max.toDouble(),
+        )
+      );
+    }
+  }
 
   @override 
   Widget build (BuildContext ctxt) {
@@ -64,18 +100,8 @@ class _customSliderState extends State<customSlider> {
                   thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
                   overlayShape: RoundSliderOverlayShape(overlayRadius: 28.0),
                 ),
-                child: Slider(
-                  value: showerTime,
-                  onChanged: (value) { 
-                    setState(() {
-                      showerTime = value;
-                    });
-                    widget.updateVal(value);
-                  },
-                  min: this.min.toDouble(),
-                  max: this.max.toDouble(),
-                  ),
-                ),
+                child: getSlider(),
+                )
               ],
             ),
             Text(

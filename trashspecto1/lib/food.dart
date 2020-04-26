@@ -157,6 +157,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     min: 1,
                     max: 14,
                     showerTime: this._eatingOut,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -205,6 +206,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     min: 0,
                     max: 7,
                     showerTime: this._compostingFreq,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(

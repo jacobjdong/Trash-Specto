@@ -11,22 +11,13 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
   String _dishwasherType;
   String newValue;
   List<Widget> cards;
+  int visible = 6;
 
-  void removeTop() {
-    setState(() {
-      cards.removeAt(cards.length - 1);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    cards = updateCards();
-  }
   dynamic _background = "images/bathroomlayout.png";
   
   @override
   Widget build (BuildContext ctxt) {
+    updateCards();
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -87,6 +78,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -94,7 +86,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState(() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -133,6 +127,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 14,
                     showerTime: this._showerFreq,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -140,7 +135,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState(() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -180,6 +177,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -187,8 +185,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
-                      _background = "images/laundrylayout.png";
+                      setState(() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -249,7 +248,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState(() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -289,6 +290,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 8,
                     showerTime: this._clothesFreq,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -296,8 +298,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
-                      _background = "images/lawnlayout.png";
+                      setState(() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -336,6 +339,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 100,
                     showerTime: this._lawnSize,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -343,7 +347,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       style: TextStyle(fontSize: 20)
                     ),
                     onPressed: () {
-                      removeTop();
+                      setState(() {
+                        visible--;
+                      });
                     }
                   ),
                 ],
@@ -354,6 +360,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
       ),
     );
 
-    return cards;
+    for (int i = cards.length; i > visible; i--) {
+      cards.removeAt(i-1);
+    }
+
   }
 }
