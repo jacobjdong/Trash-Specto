@@ -27,17 +27,20 @@ class _ScreenTrashState extends State<ScreenTrash> {
         child: Container(
           child: Row(
             children: <Widget>[
-              Expanded(child: customSlider(
-                updateVal: (value) {
-                  setState(() {
-                    _value = value;
-                  });
-                },
-                question: "OI MATE PISS OFF",
-                min: 0,
-                max: 2,
-                showerTime: 1.0,
-              )),
+              Expanded(child: 
+                customSlider(
+                  updateVal: (value) {
+                    setState(() {
+                      _value = value;
+                    });
+                  },
+                  question: "OI MATE PISS OFF",
+                  min: 0,
+                  max: 2,
+                  showerTime: 1.0,
+                  discreet: false,
+                )
+              ),
                 
               Text(
                 '0',

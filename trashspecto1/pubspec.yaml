@@ -51,6 +51,9 @@ flutter:
     - images/foodlayout1nopork.png
     - images/foodlayout1nobeeforpork.png
     - images/foodlayout1norestrictions.png
+    - images/bathroomlayout.png
+    - images/laundrylayout.png
+    - images/lawnlayout.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

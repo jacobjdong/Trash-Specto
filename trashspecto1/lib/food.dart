@@ -13,7 +13,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
   List<Widget> cards;
   int visible = 3;
 
-  dynamic _background = "images/foodlayout1nobeef.png";
+  dynamic _background = "images/foodlayout1noanything.png";
   
   @override
   Widget build (BuildContext ctxt) {
@@ -157,6 +157,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     min: 1,
                     max: 14,
                     showerTime: this._eatingOut,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
@@ -205,6 +206,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     min: 0,
                     max: 7,
                     showerTime: this._compostingFreq,
+                    discreet: false,
                   ),
                   RaisedButton(
                     child: Text(
