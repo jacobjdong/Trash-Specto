@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     foodNoRestrict = Image.asset("images/foodlayout1norestrictions.png");
 
     Timer(
-        Duration(seconds: 3),
+        Duration(seconds: 0),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => MainScreen())));
   }

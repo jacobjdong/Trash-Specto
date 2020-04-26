@@ -89,7 +89,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
                   ),
                   RaisedButton(
                     child: Text("Clear"),
-                    onPressed: () {},
+                    onPressed: () => _clear(),
                   )
                 ]
               ),
@@ -101,7 +101,9 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   void _clear() {
-    arCoreController.removeNode(nodeName: null);
+    for (int i = 0; i < walle; i++) {
+      arCoreController.removeNode(nodeName: 'a');
+    }
   }
 
   void _day() {
@@ -126,7 +128,6 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
 
   void _onArCoreViewCreated(ArCoreController controller) {
     arCoreController = controller;
-    arCoreController.onNodeTap = _handleOnNodeTap;
     arCoreController.onPlaneTap = _handleOnPlaneTap;
   }
 
@@ -168,6 +169,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   void _spawnRedBullPyramidGal(double liquid, ArCoreHitTestResult plane) {
     if (liquid != 0) {
       int numCans = (liquid/208.19755).round();
+      walle = numCans;
       int l = 1;
       int n = 1;
       final double tapx = plane.pose.translation.x;
@@ -193,6 +195,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   void _spawnPizzaPyramid(double pounds, ArCoreHitTestResult plane) {
     if (pounds != 0) {
       int numBoxes = (pounds/1.1672).round();
+      walle = numBoxes;
       int l = 1;
       int n = 1;
       final double tapx = plane.pose.translation.x;
@@ -215,41 +218,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     }
   }
 
-  /*void _addKraftTap(ArCoreHitTestResult plane) async {
-    print(plane.toString());
-    final ByteData textureBytes = await rootBundle.load('assets/krafttexture.png');
-
-    final material = ArCoreMaterial(
-      color: Color.fromARGB(255, 0, 0, 0),
-      textureBytes: textureBytes.buffer.asUint8List(),
-    );
-    final cube = ArCoreCube(
-      materials: [material],
-    );
-    node = ArCoreNode(
-      shape: cube,
-      position: plane.translation,
-      rotation: plane.rotation,
-    );
-    arCoreController.addArCoreNodeWithAnchor(node);
-  }
-
-  void _addKraftTap(ArCoreHitTestResult plane) async {
-    final ByteData textureBytes = await rootBundle.load('assets/krafttexture.png');
-    print(textureBytes.buffer.asUint8List().toString());
-    final material = ArCoreMaterial(
-        color: Color.fromARGB(255, 66, 134, 244),
-        textureBytes: textureBytes.buffer.asUint8List());
-    final sphere = ArCoreCube(
-      materials: [material],
-      size: vector.Vector3(0.1, 0.1, 0.1),
-    );
-    node = ArCoreNode(
-        shape: sphere,
-        position: plane.pose.translation,
-        rotation: plane.pose.rotation);
-    arCoreController.addArCoreNodeWithAnchor(node);
-
+  /*
     void _spawnRedBullPyramid(double liquid, ArCoreHitTestResult plane) {
     int numCans = liquid~/12;
     int l = 1;
@@ -288,14 +257,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
         );
     arCoreController.addArCoreNodeWithAnchor(node);
   }
-
-  void _handleOnPlaneDetected(ArCorePlane plane) {
-    if (!placed) {
-      _addSphere(arCoreController, plane);
-      placed = true;
-    }
-  }
-  }*/
+  */
 
   void _placeCubeAtPos(vector.Vector3 v, double size) async {
     final ByteData textureBytes = await rootBundle.load('images/trashcube.png');
@@ -309,7 +271,8 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     );
     node = ArCoreNode(
         shape: cube,
-        position: v
+        position: v,
+        name: 'a'
     );
     arCoreController.addArCoreNodeWithAnchor(node);
   }
@@ -349,10 +312,6 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
         position: v
         );
     arCoreController.addArCoreNodeWithAnchor(node);
-  }
-
-  void _handleOnNodeTap(String name) {
-    arCoreController.removeNode(nodeName: name);
   }
 
   @override
