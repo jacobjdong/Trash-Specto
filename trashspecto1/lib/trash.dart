@@ -225,7 +225,6 @@ class _ScreenTrashState extends State<ScreenTrash> {
                           setState(() {
                             visible--;
                           });
-                          print("pushed");
                           Navigator.push(
                             ctxt,
                             MaterialPageRoute(
