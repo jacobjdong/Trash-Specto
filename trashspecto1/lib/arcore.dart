@@ -68,25 +68,27 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   void _spawnTrashPyramid(double trash, int numCubes, ArCoreHitTestResult plane) {
-    double density = 56.3613;
-    double trashPerCube = trash/numCubes;
-    double cubeSize = trashPerCube/density;
-    cubeSize = pow(cubeSize, 1/3);
-    int l = 1;
-    int n = 1;
-    double tapx = plane.pose.translation.x;
-    double tapy = plane.pose.translation.y;
-    double tapz = plane.pose.translation.z;
-    while (numCubes.toDouble()/l > 1.0) {
-      n++;
-      l += (n*n);
-    }
-    for (int z = n; z > 0; z--) {
-      for (int x = z; x > (z*-1); x -= 2) {
-        for (int y = z; y > (z*-1); y -= 2) {
-          if (numCubes > 0) {
-            _placeCubeAtPos(vector.Vector3(tapx + (x.toDouble()*cubeSize*.55), tapz + ((n*cubeSize) - (z.toDouble()*cubeSize)), tapy + (y.toDouble()*cubeSize*.55)), cubeSize);
-            numCubes--;
+    if (trash != 0) {
+      double density = 56.3613;
+      double trashPerCube = trash/numCubes;
+      double cubeSize = trashPerCube/density;
+      cubeSize = pow(cubeSize, 1/3);
+      int l = 1;
+      int n = 1;
+      double tapx = plane.pose.translation.x;
+      double tapy = plane.pose.translation.y;
+      double tapz = plane.pose.translation.z;
+      while (numCubes.toDouble()/l > 1.0) {
+        n++;
+        l += (n*n);
+      }
+      for (int z = n; z > 0; z--) {
+        for (int x = z; x > (z*-1); x -= 2) {
+          for (int y = z; y > (z*-1); y -= 2) {
+            if (numCubes > 0) {
+              _placeCubeAtPos(vector.Vector3(tapx + (x.toDouble()*cubeSize*.55), tapz + ((n*cubeSize) - (z.toDouble()*cubeSize)), tapy + (y.toDouble()*cubeSize*.55)), cubeSize);
+              numCubes--;
+            }
           }
         }
       }
@@ -94,22 +96,24 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   void _spawnRedBullPyramidGal(double liquid, ArCoreHitTestResult plane) {
-    int numCans = (liquid/208.19755).round();
-    int l = 1;
-    int n = 1;
-    final double tapx = plane.pose.translation.x;
-    final double tapy = plane.pose.translation.y;
-    final double tapz = plane.pose.translation.z;
-    while (numCans.toDouble()/l > 1.0) {
-      n++;
-      l += (n*n);
-    }
-    for (int z = n; z > 0; z--) {
-      for (int x = z; x > (z*-1); x -= 2) {
-        for (int y = z; y > (z*-1); y -= 2) {
-          if (numCans > 0) {
-            _placeGalRedBullAtPos(vector.Vector3(tapx + (x.toDouble()*0.584*.55), tapz + ((n*0.876) - (z.toDouble()*0.876)), tapy + (y.toDouble()*0.584*.55)));
-            numCans--;
+    if (liquid != 0) {
+      int numCans = (liquid/208.19755).round();
+      int l = 1;
+      int n = 1;
+      final double tapx = plane.pose.translation.x;
+      final double tapy = plane.pose.translation.y;
+      final double tapz = plane.pose.translation.z;
+      while (numCans.toDouble()/l > 1.0) {
+        n++;
+        l += (n*n);
+      }
+      for (int z = n; z > 0; z--) {
+        for (int x = z; x > (z*-1); x -= 2) {
+          for (int y = z; y > (z*-1); y -= 2) {
+            if (numCans > 0) {
+              _placeGalRedBullAtPos(vector.Vector3(tapx + (x.toDouble()*0.584*.55), tapz + ((n*0.876) - (z.toDouble()*0.876)), tapy + (y.toDouble()*0.584*.55)));
+              numCans--;
+            }
           }
         }
       }
@@ -117,22 +121,24 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   void _spawnPizzaPyramid(double pounds, ArCoreHitTestResult plane) {
-    int numBoxes = (pounds/1.1672).round();
-    int l = 1;
-    int n = 1;
-    final double tapx = plane.pose.translation.x;
-    final double tapy = plane.pose.translation.y;
-    final double tapz = plane.pose.translation.z;
-    while (numBoxes.toDouble()/l > 1.0) {
-      n++;
-      l += (n*n);
-    }
-    for (int z = n; z > 0; z--) {
-      for (int x = z; x > (z*-1); x -= 2) {
-        for (int y = z; y > (z*-1); y -= 2) {
-          if (numBoxes > 0) {
-            _placePizzaAtPos(vector.Vector3(tapx + (x.toDouble()*0.254*.55), tapz + ((n*0.05) - (z.toDouble()*0.05)), tapy + (y.toDouble()*0.254*.55)));
-            numBoxes--;
+    if (pounds != 0) {
+      int numBoxes = (pounds/1.1672).round();
+      int l = 1;
+      int n = 1;
+      final double tapx = plane.pose.translation.x;
+      final double tapy = plane.pose.translation.y;
+      final double tapz = plane.pose.translation.z;
+      while (numBoxes.toDouble()/l > 1.0) {
+        n++;
+        l += (n*n);
+      }
+      for (int z = n; z > 0; z--) {
+        for (int x = z; x > (z*-1); x -= 2) {
+          for (int y = z; y > (z*-1); y -= 2) {
+            if (numBoxes > 0) {
+              _placePizzaAtPos(vector.Vector3(tapx + (x.toDouble()*0.254*.55), tapz + ((n*0.05) - (z.toDouble()*0.05)), tapy + (y.toDouble()*0.254*.55)));
+              numBoxes--;
+            }
           }
         }
       }

@@ -225,14 +225,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
                           setState(() {
                             visible--;
                           });
-                          Navigator.push(
-                            ctxt,
-                            MaterialPageRoute(
-                              builder: (ctxt) => AutoDetectPlane(
-                              state: "trash", 
-                              data: calculateTrash()
-                            ),
-                          ));
+                          
                         }
                       ),
                     ),
@@ -290,6 +283,15 @@ class _ScreenTrashState extends State<ScreenTrash> {
                           setState(() {
                             visible--;
                           });
+                          Navigator.push(
+                            ctxt,
+                            MaterialPageRoute(
+                              builder: (ctxt) => AutoDetectPlane(
+                                state: "trash", 
+                                data: calculateTrash()
+                              ),
+                            )
+                          );
                         }
                       ),
                     ),

@@ -380,14 +380,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       setState(() {
                         this._lawnSize = value;
                       });
-                      Navigator.push(
-                        ctxt,
-                        MaterialPageRoute(
-                          builder: (ctxt) => AutoDetectPlane(
-                          state: "water", 
-                          data: calculateWater()
-                        ),
-                      ));
+                      
                     },
                     question: "How large is your grass lawn?",
                     min: 0,
@@ -407,6 +400,15 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                           setState(() {
                             visible--;
                           });
+                          Navigator.push(
+                            ctxt,
+                            MaterialPageRoute(
+                              builder: (ctxt) => AutoDetectPlane(
+                                state: "water", 
+                                data: calculateWater()
+                              ),
+                            )
+                          );
                         }
                       ),
                     ),

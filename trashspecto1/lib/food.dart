@@ -259,10 +259,11 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                                 ctxt,
                                 MaterialPageRoute(
                                   builder: (ctxt) => AutoDetectPlane(
-                                  state: "food", 
-                                  data: calculateFood()
-                                ),
-                              ));
+                                    state: "food",
+                                    data: calculateFood()
+                                  ),
+                                )
+                              );
                             }
                           ),
                         ),
