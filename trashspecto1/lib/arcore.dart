@@ -297,7 +297,8 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     );
     node = ArCoreNode(
         shape: cylinder,
-        position: v
+        position: v,
+        name: 'a'
         );
     arCoreController.addArCoreNodeWithAnchor(node);
   }
@@ -315,7 +316,8 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     );
     node = ArCoreNode(
         shape: box,
-        position: v
+        position: v,
+        name: 'a'
         );
     arCoreController.addArCoreNodeWithAnchor(node);
   }
