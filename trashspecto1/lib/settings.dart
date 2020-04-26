@@ -28,7 +28,7 @@ class _SettingsState extends State<Settings> {
       appBar: new AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff89e5ff)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
@@ -60,7 +60,7 @@ class _SettingsState extends State<Settings> {
                     });
                     widget.updateRegion(newValue);
                   },
-                  items: <String>['Oceania','North America', 'South America', 'Asia', 'Europe', 'Africa'].map((String value) {
+                  items: <String>['Asia', 'Africa', 'Europe', 'North America', 'South America', 'Oceania'].map((String value) {
                     return new DropdownMenuItem<String>(
                       value: value,
                       child: new Text(value),
@@ -86,8 +86,8 @@ class _SettingsState extends State<Settings> {
                     });
                     widget.updateMetric(value);
                   },
-                  activeTrackColor: Color(0xffabeca0),
-                  activeColor: Color(0xff7eBB76),
+                  activeTrackColor: Color(0xff89e5ff),
+                  activeColor: Color(0xff72c9e9),
                   autofocus: false,
                 ), 
                 

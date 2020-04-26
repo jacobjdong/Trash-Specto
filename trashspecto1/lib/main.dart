@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Color(0xff5361c2),
-        accentColor: Color(0xff9ee493),
+        accentColor: Color(0xff89e5ff),
         
         fontFamily: 'Georgia'
       ),
@@ -206,7 +206,7 @@ class ScreenARViewer extends StatelessWidget {
       appBar: new AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff89e5ff)),
           onPressed: () {
             Navigator.pop(ctxt);
           }
