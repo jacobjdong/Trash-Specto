@@ -131,7 +131,7 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   }
 
   void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
-    final hit = hits.last;
+    final hit = hits.first;
     _spawnTrashPyramid(getData("trash") * multiplier, walle, hit); //Takes kilograms
     _spawnPizzaPyramid(getData("food") * multiplier, hit);  //Takes pounds
     _spawnRedBullPyramidGal(getData("water") * multiplier, hit); //Takes liters
