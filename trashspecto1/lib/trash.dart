@@ -33,7 +33,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
         appBar: new AppBar(
           centerTitle: true,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Color(0xff778BF3)),
+            icon: Icon(Icons.arrow_back, color: Color(0xff89e5ff)),
             onPressed: () {
               Navigator.pop(ctxt);
             }
