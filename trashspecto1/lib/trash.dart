@@ -38,7 +38,6 @@ class _ScreenTrashState extends State<ScreenTrash> {
                   min: 0,
                   max: 2,
                   showerTime: 1.0,
-                  discreet: false,
                 )
               ),
                 

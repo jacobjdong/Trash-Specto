@@ -157,7 +157,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     min: 1,
                     max: 14,
                     showerTime: this._eatingOut,
-                    discreet: false,
+                    units: "times a week"
                   ),
                   RaisedButton(
                     child: Text(
@@ -202,11 +202,11 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         this._eatingOut = value;
                       });
                     },
-                    question: "How often do you compost your food waste? (days per week)",
+                    question: "How much food do you compost?",
                     min: 0,
-                    max: 7,
+                    max: 100,
                     showerTime: this._compostingFreq,
-                    discreet: false,
+                    units: "%"
                   ),
                   RaisedButton(
                     child: Text(

@@ -74,11 +74,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._toiletFreq = value;
                       });
                     },
-                    question: "How often do you flush the toilet (per day)",
+                    question: "How often do you flush the toilet? (per day)",
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
-                    discreet: false,
+                    units: "time a day",
                   ),
                   RaisedButton(
                     child: Text(
@@ -123,11 +123,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._showerFreq = value;
                       });
                     },
-                    question: "How often do you shower (per week)",
+                    question: "How often do you shower?",
                     min: 0,
                     max: 14,
                     showerTime: this._showerFreq,
-                    discreet: false,
+                    units: "times a week"
                   ),
                   RaisedButton(
                     child: Text(
@@ -177,7 +177,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
-                    discreet: false,
+                    units: "minutes"
                   ),
                   RaisedButton(
                     child: Text(
@@ -287,11 +287,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._clothesFreq = value;
                       });
                     },
-                    question: "How often do you wash your clothes (per month)",
+                    question: "How often do you wash your clothes?",
                     min: 0,
                     max: 8,
                     showerTime: this._clothesFreq,
-                    discreet: false,
+                    units: "times a month"
                   ),
                   RaisedButton(
                     child: Text(
@@ -337,11 +337,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._lawnSize = value;
                       });
                     },
-                    question: "How large is your grass lawn (meters squared)",
+                    question: "How large is your grass lawn",
                     min: 0,
                     max: 100,
                     showerTime: this._lawnSize,
-                    discreet: false,
+                    units: "meters^2"
                   ),
                   RaisedButton(
                     child: Text(
