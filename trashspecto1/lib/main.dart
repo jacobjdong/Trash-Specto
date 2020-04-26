@@ -33,7 +33,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   String chosenRegion = "North America";
-  bool metric = true;
+  bool metric = false;
 
   @override
   Widget build(BuildContext ctxt) {

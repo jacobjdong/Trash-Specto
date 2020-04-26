@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
 import 'package:nice_button/nice_button.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'arcore.dart';
 
 class ScreenWastewater extends StatefulWidget {
@@ -102,6 +103,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     metric: false,
                     units: "times a day",
                     unit: "time a day",
+                    title: "Water tip #1",
+                    desc: "An average person flushes about 18 gallons a day down the toilet. Why we haven’t implemented greywater systems to do this? No one knows!"
                   ),
                   Expanded(
                     child: Align(
@@ -160,6 +163,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     metric: false,
                     units: "times a week",
                     unit: "time a week",
+                    title: "Water tip #2",
+                    desc: "Take shorter showers to significantly reduce water usage.",
                   ),
                   Expanded(
                     child: Align(
@@ -218,6 +223,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     metric: false,
                     units: "minutes",
                     unit: "minute",
+                    title: "Water tip #3",
+                    desc: "Did you know the average shower head uses more than 7.5 liters (change based on user) 2 gallons of water per minute?"
                   ),
                   Expanded(
                     child: Align(
@@ -272,7 +279,23 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         child: FloatingActionButton(
                           heroTag: "helpBut",
                           onPressed: () {
-
+                            return Alert(context: context, 
+                              title: "Water tip #4", 
+                              desc: "Check pipes, faucets, and toilets for leaks. Leaks account for more than 1 trillion gallon of water wasted annually nationwide!",
+                              buttons: [
+                                DialogButton(
+                                  child: Text("Exit",
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.white,
+                                    fontSize: 23.9,
+                                    fontWeight: FontWeight.bold)),
+                                  color: Color(0xff5361c2),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  }
+                                )
+                              ]).show();
                           },
                           child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
                           mini: true,
@@ -375,7 +398,9 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     showerTime: this._clothesFreq,
                     metric: false,
                     units: "times a month",
-                    unit: "time a month"
+                    unit: "time a month",
+                    title: "Water tip #5", 
+                    desc: "Washing your dishes using a dishwasher can reduce your water use by more than 50%!"
                   ),
                   Expanded(
                     child: Align(
@@ -436,6 +461,8 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     metric: widget.metric,
                     units: widget.metric ? "meters\u00B2" : "Acres",
                     unit: widget.metric ? "meter\u00B2" : "Acre",
+                    title: "Water tip #6",
+                    desc: "Planting a lawn that requires less watering can have a big impact in dry regions."
                   ),
                   Expanded(
                     child: Align(

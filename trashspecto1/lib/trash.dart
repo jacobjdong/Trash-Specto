@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
@@ -94,6 +95,8 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     metric: false,
                     units: "%",
                     unit: "%",
+                    title: "Trash tip #1",
+                    desc: "About 75% of American waste is recyclable, but only 30% of it ever sees a recycling center. The rest ends up in a landfill.",
                   ),
                   Expanded(
                     child: Align(
@@ -151,6 +154,8 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     metric: false,
                     units: "%",
                     unit: "%",
+                    title: "Trash tip #2",
+                    desc: "Compost food scraps instead of throwing them away: your garden will benefit from the carbon-rich organic fertilizer!"
                   ),
                   Expanded(
                     child: Align(
@@ -207,7 +212,23 @@ class _ScreenTrashState extends State<ScreenTrash> {
                         child: FloatingActionButton(
                           heroTag: "helpBut",
                           onPressed: () {
-
+                            return Alert(context: context, 
+                            title: "Trash tip #3", 
+                            desc: "Look to buy things made out of recyclable or reusable materials, and donating to centers like ARC or Goodwill can help other people in need as well.",
+                            buttons: [
+                              DialogButton(
+                                child: Text("Exit",
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                  fontSize: 23.9,
+                                  fontWeight: FontWeight.bold)),
+                                color: Color(0xff5361c2),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                }
+                              )
+                            ]).show();
                           },
                           child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
                           mini: true,
@@ -314,6 +335,8 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     metric: false,
                     units: "%",
                     unit: "%",
+                    title: "Trash tip #4",
+                    desc: "When you donate your clothes, you are saving the environment from a lot of harm. According to the EPA, it costs \$45 on average per ton to dispose of waste in a landfill."
                   ),
                   Expanded(
                     child: Align(

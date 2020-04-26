@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class customSlider extends StatefulWidget {
   final Function updateVal;
   final String question;
   final String units;
   final String unit;
+  final String title;
+  final String desc;
   final double showerTime;
   final int min;
   final int max;
   final bool metric;
 
-  customSlider({this.updateVal, this.question, this.showerTime, this.units, this.unit, this.min, this.max, this.metric,});
+  customSlider({this.updateVal, this.question, this.showerTime, this.units, this.unit, this.min, this.max, this.metric, this.title, this.desc});
 
   @override
   State<StatefulWidget> createState() {
@@ -29,8 +32,9 @@ class _customSliderState extends State<customSlider> {
 
   _customSliderState({this.min, this.max, this.showerTime});
 
+
   @override 
-  Widget build (BuildContext ctxt) {
+  Widget build (BuildContext context) {
     return new Column(
       children: <Widget>[
         Align(
@@ -38,7 +42,23 @@ class _customSliderState extends State<customSlider> {
           child: FloatingActionButton(
             heroTag: "helpBut" + this.widget.question,
             onPressed: () {
-
+              return Alert(context: context, 
+                title: widget.title, 
+                desc: widget.desc,
+                buttons: [
+                  DialogButton(
+                    child: Text("Exit",
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.white,
+                      fontSize: 23.9,
+                      fontWeight: FontWeight.bold)),
+                    color: Color(0xff5361c2),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }
+                  )
+                ]).show();
             },
             child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
             mini: true,
@@ -72,7 +92,7 @@ class _customSliderState extends State<customSlider> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SliderTheme(
-                  data: SliderTheme.of(ctxt).copyWith(
+                  data: SliderTheme.of(context).copyWith(
                   activeTrackColor: Color(0xff778BF3),
                   inactiveTrackColor: Color(0xffd5e1fd),
                   trackShape: RectangularSliderTrackShape(),

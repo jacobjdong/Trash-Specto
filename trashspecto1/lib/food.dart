@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
@@ -89,7 +90,23 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         child: FloatingActionButton(
                           heroTag: "helpBut",
                           onPressed: () {
-
+                            return Alert(context: context, 
+                              title: "Food tip #1", 
+                              desc: "Beef—which is the second most popular meat in the U.S.—has the largest water footprint out of all types of meat, taking a whopping 1,800 gallons of water per pound.",
+                              buttons: [
+                                DialogButton(
+                                  child: Text("Exit",
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.white,
+                                    fontSize: 23.9,
+                                    fontWeight: FontWeight.bold)),
+                                  color: Color(0xff5361c2),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  }
+                                )
+                              ]).show();
                           },
                           child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
                           mini: true,
@@ -211,6 +228,8 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         metric: false,
                         units: "times a week",
                         unit: "time a week",
+                        title: "Food tip #2",
+                        desc: "Planning out your meals and making a shopping list can reduce the amount of extra food bought, and lead to a more fulfilling cooking session."
                       ),
                       Expanded(
                         child: Align(
@@ -274,6 +293,8 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         metric: false,
                         units: "%",
                         unit: "%",
+                        title: "Food tip #3",
+                        desc: "Prepare or cook perishables, and then freeze them for later consumption. Leftovers for days!"
                       ),
                       Expanded(
                         child: Align(
