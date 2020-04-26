@@ -221,7 +221,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
       ),
     );
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 100,
         child: Card(
@@ -230,84 +230,90 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           ),
-          child: Container(
-            width: 260.0,
-            height: 350.0,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Align(
-          alignment: Alignment.topRight,
-          child: FloatingActionButton(
-            heroTag: "helpBut",
-            onPressed: () {
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Container(
+                width: 260.0,
+                height: 350.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: FloatingActionButton(
+                          heroTag: "helpBut",
+                          onPressed: () {
 
-            },
-            child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
-            mini: true,
-            backgroundColor: Color(0xffffffff),
-          ),
-        ),
-                  SizedBox(
-                    height: 60,
-                  ),
-                  Text(
-                    'How do you wash your dishes?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  DropdownButton<String>(
-                    hint: Text('Hand or Machine'),
-                    onChanged: (String changedValue) {
-                      setState(() {
-                        _dishwasherType = changedValue;
-                      });
-                    },
-                    value: _dishwasherType,
-                    items: <String>['Hand', 'Machine'].map((String value) {
-                      return new DropdownMenuItem<String>(
-                        value: value,
-                        child: new Text(value),
-                      );
-                    }).toList(),
-                  ),
-                  Text(
-                    errorString,
-                    style: TextStyle(
-                      color: Colors.red,
-                    )
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
+                          },
+                          child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
+                          mini: true,
+                          backgroundColor: Color(0xffffffff),
                         ),
-                        onPressed: () {
-                          if (_dishwasherType == null) {
-                            setState(() {
-                              errorString = "Please select a value";
-                            });
-                          } else {
-                            setState(() {
-                              visible--;
-                            });
-                          }
-                        }
                       ),
-                    ),
-                  ),
-                ],
+                      SizedBox(
+                        height: 60,
+                      ),
+                      Text(
+                        'How do you wash your dishes?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      DropdownButton<String>(
+                        hint: Text('Hand or Machine'),
+                        onChanged: (String changedValue) {
+                          setState(() {
+                            _dishwasherType = changedValue;
+                          });
+                        },
+                        value: _dishwasherType,
+                        items: <String>['Hand', 'Machine'].map((String value) {
+                          return new DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+                      ),
+                      Text(
+                        errorString,
+                        style: TextStyle(
+                          color: Colors.red,
+                        )
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: RaisedButton(
+                            child: Text(
+                              'Next',
+                              style: TextStyle(fontSize: 20)
+                            ),
+                            onPressed: () {
+                              if (_dishwasherType == null) {
+                                setState(() {
+                                  errorString = "Please select a value";
+                                });
+                              } else {
+                                setState(() {
+                                  visible--;
+                                });
+                              }
+                            }
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ),
               ),
-            ),
+            ]
           ),
         ),
       ),

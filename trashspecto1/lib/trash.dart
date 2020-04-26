@@ -164,7 +164,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
       ),
     );
 
-    cards.insert(0,
+    this.cards.insert(0,
       Positioned(
         top: 70,
         child: Card(
@@ -173,85 +173,91 @@ class _ScreenTrashState extends State<ScreenTrash> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           ),
-          child: Container(
-            width: 260.0,
-            height: 350.0,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Align(
-          alignment: Alignment.topRight,
-          child: FloatingActionButton(
-            heroTag: "helpBut",
-            onPressed: () {
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Container(
+                width: 260.0,
+                height: 350.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: FloatingActionButton(
+                          heroTag: "helpBut",
+                          onPressed: () {
 
-            },
-            child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
-            mini: true,
-            backgroundColor: Color(0xffffffff),
-          ),
-        ),
-                  SizedBox(
-                    height:60,
-                  ),
-                  Text(
-                    'What type of shopper are you?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  DropdownButton<String>(
-                    hint: Text('Average'),
-                    onChanged: (String changedValue) {
-                      setState(() {
-                        _shoppingType = changedValue;
-                      });
-                    },
-                    value: _shoppingType,
-                    items: <String>['Frugal', 'Average', 'Shopaholic'].map((String value) {
-                      return new DropdownMenuItem<String>(
-                        value: value,
-                        child: new Text(value),
-                      );
-                    }).toList(),
-                  ),
-                  Text(
-                    errorString,
-                    style: TextStyle(
-                      color: Colors.red,
-                    )
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
+                          },
+                          child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
+                          mini: true,
+                          backgroundColor: Color(0xffffffff),
                         ),
-                        onPressed: () {
-                          if (_shoppingType == null) {
-                            setState(() {
-                              errorString = "Please select a value";
-                            });
-                          } else {
-                            setState(() {
-                              visible--;
-                            });
-                          }
-                          
-                        }
                       ),
-                    ),
-                  ),
-                ],
+                      SizedBox(
+                        height: 60,
+                      ),
+                      Text(
+                        'What type of shopper are you?',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      DropdownButton<String>(
+                        hint: Text('Average'),
+                        onChanged: (String changedValue) {
+                          setState(() {
+                            _shoppingType = changedValue;
+                          });
+                        },
+                        value: _shoppingType,
+                        items: <String>['Frugal', 'Average', 'Shopaholic'].map((String value) {
+                          return new DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+                      ),
+                      Text(
+                        errorString,
+                        style: TextStyle(
+                          color: Colors.red,
+                        )
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: RaisedButton(
+                            child: Text(
+                              'Next',
+                              style: TextStyle(fontSize: 20)
+                            ),
+                            onPressed: () {
+                              if (_shoppingType == null) {
+                                setState(() {
+                                  errorString = "Please select a value";
+                                });
+                              } else {
+                                setState(() {
+                                  visible--;
+                                });
+                              }
+                              
+                            }
+                          ),
+                        ),
+                      ),
+                    ]
+                  )
+                )
               ),
-            ),
+            ],
           ),
         ),
       ),

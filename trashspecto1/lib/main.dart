@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nice_button/nice_button.dart';
 import 'settings.dart';
 import 'food.dart';
 import 'trash.dart';
@@ -56,68 +57,89 @@ class _MainScreenState extends State<MainScreen> {
             new Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
-            RaisedButton(
-            child: Text(
-              'Overall Garbage',
-              style: TextStyle(fontSize: 20)
-            ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
-              );
-            }
-          ),
-          RaisedButton(
-            child: Text(
-              'Wastewater',
-              style: TextStyle(fontSize: 20)
-            ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenWastewater()),
-              );
-            }
-          ),
-          RaisedButton(
-            child: Text(
-              'Food Waste',
-              style: TextStyle(fontSize: 20)
-            ),
-            onPressed: () {
-              Navigator.push(
-                ctxt,
-                MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste()),
-              );
-            }
-          ),
-            RaisedButton(
-              child: Text(
-                'Settings',
-                style: TextStyle(fontSize: 20)
-              ),
-              onPressed: () {
-                Navigator.push(
-                  ctxt,
-                  MaterialPageRoute(builder: (ctxt) => new Settings(
-                    region: this.chosenRegion,
-                    metric: this.metric,
-                    updateRegion: (newRegion) {
-                      setState(() {
-                        this.chosenRegion = newRegion;
-                      });
-                    },
-                    updateMetric: (value) {
-                      setState(() {
-                        this.metric = value;
-                      });
-                    },
-                  )),
-                );
-              }
-            ),
-            SizedBox(height:120),
+                SizedBox(
+                  height: 100,
+                ),
+                NiceButton(
+                  width: 255,
+                  elevation: 8.0,
+                  radius: 52.0,
+                  text: 'Overall Garbage',
+                  background: Color(0xff5361c2),
+                  onPressed: () {
+                    Navigator.push(
+                      ctxt,
+                      MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
+                    );
+                  }
+                ),
+                
+                SizedBox(
+                  height:10
+                ),
+              
+                NiceButton(
+                  width: 255,
+                  elevation: 8.0,
+                  radius: 52.0,
+                  text: "Wastewater",
+                  background: Color(0xff5361c2),
+                  onPressed: () {
+                      Navigator.push(
+                      ctxt,
+                      MaterialPageRoute(builder: (ctxt) => ScreenWastewater()),
+                    );
+                  }
+                ),
+                
+                SizedBox(
+                  height:10
+                ),
+
+                NiceButton(
+                  width: 255,
+                  elevation: 8.0,
+                  radius: 52.0,
+                  text: 'Food Waste',
+                  background: Color(0xff5361c2),
+                  onPressed: () {
+                    Navigator.push(
+                      ctxt,
+                      MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste()),
+                    );
+                  }
+                ),
+                SizedBox(
+                  height:10
+                ),
+                
+                NiceButton(
+                  width: 255,
+                  elevation: 8.0,
+                  radius: 52.0,
+                  text: 'Settings',
+                  background: Color(0xff5361c2),
+                  onPressed: () {
+                    Navigator.push(
+                        ctxt,
+                        MaterialPageRoute(builder: (ctxt) => new Settings(
+                          region: this.chosenRegion,
+                          metric: this.metric,
+                          updateRegion: (newRegion) {
+                            setState(() {
+                              this.chosenRegion = newRegion;
+                            });
+                          },
+                          updateMetric: (value) {
+                            setState(() {
+                              this.metric = value;
+                            });
+                          },
+                        )),
+                      );
+                  }
+                ),
+                SizedBox(height:120),
               ]
             ),
           ]

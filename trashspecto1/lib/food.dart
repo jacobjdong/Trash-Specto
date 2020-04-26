@@ -76,17 +76,17 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Align(
-          alignment: Alignment.topRight,
-          child: FloatingActionButton(
-            heroTag: "helpBut",
-            onPressed: () {
+                        alignment: Alignment.topRight,
+                        child: FloatingActionButton(
+                          heroTag: "helpBut",
+                          onPressed: () {
 
-            },
-            child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
-            mini: true,
-            backgroundColor: Color(0xffffffff),
-          ),
-        ),
+                          },
+                          child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
+                          mini: true,
+                          backgroundColor: Color(0xffffffff),
+                        ),
+                      ),
                       SizedBox(
                         height: 60,
                       ),
