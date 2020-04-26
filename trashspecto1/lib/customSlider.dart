@@ -34,6 +34,21 @@ class _customSliderState extends State<customSlider> {
   Widget build (BuildContext ctxt) {
     return new Column(
       children: <Widget>[
+        Align(
+          alignment: Alignment.topRight,
+          child: FloatingActionButton(
+            heroTag: "helpBut" + this.widget.question,
+            onPressed: () {
+
+            },
+            child: Icon(Icons.help_outline, color:Color(0xff5361c2)),
+            mini: true,
+            backgroundColor: Color(0xffffffff),
+          ),
+        ),
+        SizedBox(
+          height:60
+        ),
         Text(
             widget.question,
             textAlign: TextAlign.center,
