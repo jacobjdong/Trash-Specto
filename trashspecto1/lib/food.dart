@@ -279,8 +279,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                             }
                           ),
                         ),
-                      )
-                      
+                      ),
                     ],
                   ),
                 ),
@@ -308,7 +307,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       result *= .68;
     }
 
-    result *= (1 - _compostingFreq * .01);
+    result *= (1 - _compostingFreq * .01 + 0.01);
     return result;
   }
 }
