@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'arcore.dart';
 
 class ScreenWastewater extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
   
   @override
   Widget build (BuildContext ctxt) {
-    updateCards();
+    updateCards(ctxt);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -47,7 +48,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
     );
   }
 
-  List<Widget> updateCards() {
+  void updateCards(BuildContext ctxt) {
     cards = new List();
 
     cards.insert(0,
@@ -379,6 +380,14 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       setState(() {
                         this._lawnSize = value;
                       });
+                      Navigator.push(
+                        ctxt,
+                        MaterialPageRoute(
+                          builder: (ctxt) => AutoDetectPlane(
+                          state: "water", 
+                          data: calculateWater()
+                        ),
+                      ));
                     },
                     question: "How large is your grass lawn?",
                     min: 0,
@@ -413,6 +422,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
     for (int i = cards.length; i > visible; i--) {
       cards.removeAt(i-1);
     }
+  }
 
+  double calculateWater() {
+    double result = (_showerTime * 7.9 * _showerFreq) + (13.6 * _toiletFreq) + (3.5 * _lawnSize) + (155 * _clothesFreq / 4);
+    result += _dishwasherType == "Hand" ? 88 : 400;
+    return result;
   }
 }

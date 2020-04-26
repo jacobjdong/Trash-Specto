@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'arcore.dart';
 
 class ScreenTrash extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
   
   @override
   Widget build (BuildContext ctxt) {
-    updateCards();
+    updateCards(ctxt);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -47,7 +48,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
     );
   }
 
-  List<Widget> updateCards() {
+  void updateCards(BuildContext ctxt) {
     cards = new List();
 
     cards.insert(0,
@@ -224,6 +225,14 @@ class _ScreenTrashState extends State<ScreenTrash> {
                           setState(() {
                             visible--;
                           });
+                          Navigator.push(
+                            ctxt,
+                            MaterialPageRoute(
+                              builder: (ctxt) => AutoDetectPlane(
+                              state: "trash", 
+                              data: calculateTrash()
+                            ),
+                          ));
                         }
                       ),
                     ),
@@ -296,6 +305,22 @@ class _ScreenTrashState extends State<ScreenTrash> {
     for (int i = cards.length; i > visible; i--) {
       cards.removeAt(i-1);
     }
+  }
 
+  double calculateTrash() {
+    double result = 4.4 - (3.52 * this._recyclePercent * 0.01);
+    result -= .88 * _compostPercent * 0.01;
+
+    if (_shoppingType == 'Average') {
+      result *= 1.05;
+    } else if (_shoppingType == 'Shopaholic') {
+      result *= 1.1;
+    }
+
+    result *= (1 - this._clothing * 0.05);
+
+    print(result);
+
+    return result;
   }
 }

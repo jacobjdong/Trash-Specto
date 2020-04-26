@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
+import 'arcore.dart';
 
 class ScreenFoodWaste extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
   
   @override
   Widget build (BuildContext ctxt) {
-    updateCards();
+    updateCards(ctxt);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -47,7 +48,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     );
   }
 
-  List<Widget> updateCards() {
+  void updateCards(BuildContext ctxt) {
     this.cards = new List();
 
     this.cards.insert(0,
@@ -254,6 +255,14 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                               setState (() {
                                 visible--;
                               });
+                              Navigator.push(
+                                ctxt,
+                                MaterialPageRoute(
+                                  builder: (ctxt) => AutoDetectPlane(
+                                  state: "food", 
+                                  data: calculateFood()
+                                ),
+                              ));
                             }
                           ),
                         ),
@@ -273,5 +282,20 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     for (int i = cards.length; i > visible; i--) {
       cards.removeAt(i-1);
     }
+  }
+
+  double calculateFood() {
+    double result = .22 * _eatingOut * .25 + 7;
+    if (_diet == 'Vegan') {
+      result *= .6;
+    } else if (_diet == 'Vegetarian') {
+      result *= .68;
+    } else if (_diet == 'No Restrictions') {
+    } else {
+      result *= .68;
+    }
+
+    result *= (1 - _compostingFreq * .01);
+    return result;
   }
 }
