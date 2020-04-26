@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
 import 'arcore.dart';
+import 'dart:io';
 
 class ScreenFoodWaste extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
     );
   }
 
-  void updateCards(BuildContext ctxt) {
+  void updateCards(BuildContext ctxt) async {
     this.cards = new List();
 
     this.cards.insert(0,

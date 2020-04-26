@@ -9,13 +9,34 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Image foodNoAnything;
+  Image foodNoBeef;
+  Image foodNoPork;
+  Image foodNoBP;
+  Image foodNoRestrict;
   @override
   void initState() {
     super.initState();
+    foodNoAnything = Image.asset("images/foodlayout1noanything.png");
+    foodNoBeef = Image.asset("images/foodlayout1nobeef.png");
+    foodNoPork = Image.asset("images/foodlayout1nopork.png");
+    foodNoBP = Image.asset("images/foodlayout1nobeeforpork.png");
+    foodNoRestrict = Image.asset("images/foodlayout1norestrictions.png");
+
     Timer(
         Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => MainScreen())));
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(foodNoAnything.image, context);
+    precacheImage(foodNoBeef.image, context);
+    precacheImage(foodNoPork.image, context);
+    precacheImage(foodNoBP.image, context);
+    precacheImage(foodNoRestrict.image, context);
   }
 
   @override
