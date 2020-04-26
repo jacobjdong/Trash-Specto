@@ -36,7 +36,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
               Navigator.pop(ctxt);
             }
           ),
-          title: new Text ("Screen Wastewater", textAlign: TextAlign.center),
+          title: new Text ("Wastewater Calculator", textAlign: TextAlign.center),
         ),
         body: Center(
           child: Stack(

@@ -38,7 +38,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
               Navigator.pop(ctxt);
             }
           ),
-          title: new Text ("Screen Garbage", textAlign: TextAlign.center),
+          title: new Text ("Overall Garbage Calculator", textAlign: TextAlign.center),
         ),
         body: Center(
           child: Stack(
