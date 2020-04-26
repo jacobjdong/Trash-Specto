@@ -68,6 +68,9 @@ class _ScreenTrashState extends State<ScreenTrash> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(
+                    height:100,
+                  ),
                    customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -80,16 +83,21 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     showerTime: this._recyclePercent,
                     units: "%",
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
                   ),
                 ],
               ),
@@ -118,6 +126,9 @@ class _ScreenTrashState extends State<ScreenTrash> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(
+                    height:100,
+                  ),
                    customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -130,16 +141,21 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     showerTime: this._compostPercent,
                     units: "%"
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
                   ),
                 ],
               ),
@@ -167,6 +183,9 @@ class _ScreenTrashState extends State<ScreenTrash> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(
+                    height:100,
+                  ),
                   Text(
                     'What type of shopper are you?',
                     textAlign: TextAlign.center,
@@ -193,16 +212,21 @@ class _ScreenTrashState extends State<ScreenTrash> {
                       );
                     }).toList(),
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
                   ),
                 ],
               ),
@@ -230,6 +254,9 @@ class _ScreenTrashState extends State<ScreenTrash> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(
+                    height:100,
+                  ),
                    customSlider(
                     updateVal: (value) {
                       setState(() {
@@ -242,16 +269,21 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     showerTime: this._clothing,
                     units: "%"
                   ),
-                  RaisedButton(
-                    child: Text(
-                      'Remove!',
-                      style: TextStyle(fontSize: 20)
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        child: Text(
+                          'Submit!',
+                          style: TextStyle(fontSize: 20)
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            visible--;
+                          });
+                        }
+                      ),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        visible--;
-                      });
-                    }
                   ),
                 ],
               ),
