@@ -504,7 +504,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
   }
 
   double calculateWater() {
-    double result = (_showerTime * 7.9 * _showerFreq) + (13.6 * _toiletFreq * 7) + (3.5 * _lawnSize * 7) + (155 * _clothesFreq / 4);
+    double result = (_showerTime * 7.9 * _showerFreq) + (13.6 * _toiletFreq * 7) + (3.5 * _lawnSize) + (155 * _clothesFreq / 4);
     result += _dishwasherType == "Hand" ? 88 : 400;
     result = result/7;
     return result;
