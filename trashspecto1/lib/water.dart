@@ -77,11 +77,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._toiletFreq = value;
                       });
                     },
-                    question: "How often do you flush the toilet? (per day)",
+                    question: "How often do you flush the toilet?",
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
-                    units: "time a day",
+                    units: "time(s) a day",
                   ),
                   Expanded(
                     child: Align(
@@ -138,7 +138,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 14,
                     showerTime: this._showerFreq,
-                    units: "times a week"
+                    units: "time(s) a week"
                   ),
                   Expanded(
                     child: Align(
@@ -192,11 +192,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._showerTime = value;
                       });
                     },
-                    question: "How long is your average shower (minutes)",
+                    question: "How long is your average shower?",
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
-                    units: "minutes"
+                    units: "minute(s)"
                   ),
                   Expanded(
                     child: Align(
@@ -326,7 +326,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 8,
                     showerTime: this._clothesFreq,
-                    units: "times a month"
+                    units: "time(s) a month"
                   ),
                   Expanded(
                     child: Align(
@@ -380,11 +380,11 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                         this._lawnSize = value;
                       });
                     },
-                    question: "How large is your grass lawn",
+                    question: "How large is your grass lawn?",
                     min: 0,
                     max: 100,
                     showerTime: this._lawnSize,
-                    units: "meters^2"
+                    units: "meter(s)\u00B2"
                   ),
                   Expanded(
                     child: Align(

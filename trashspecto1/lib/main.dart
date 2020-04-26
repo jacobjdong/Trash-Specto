@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color(0xfff7d0e5),
+        primaryColor: Color(0xff5361c2),
         accentColor: Color(0xff9ee493),
         
         fontFamily: 'Georgia'
