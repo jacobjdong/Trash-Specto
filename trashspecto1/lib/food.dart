@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trashspecto1/customSlider.dart';
 import 'arcore.dart';
-import 'dart:io';
 
 class ScreenFoodWaste extends StatefulWidget {
   @override

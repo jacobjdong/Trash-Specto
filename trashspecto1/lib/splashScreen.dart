@@ -14,6 +14,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Image foodNoPork;
   Image foodNoBP;
   Image foodNoRestrict;
+  Image wasteBull;
+  Image trashCube;
+  Image pizzaBox;
   @override
   void initState() {
     super.initState();
@@ -22,6 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
     foodNoPork = Image.asset("images/foodlayout1nopork.png");
     foodNoBP = Image.asset("images/foodlayout1nobeeforpork.png");
     foodNoRestrict = Image.asset("images/foodlayout1norestrictions.png");
+    wasteBull = Image.asset("images/bottlelabel.png");
+    trashCube = Image.asset("images/trashcube.png");
+    pizzaBox = Image.asset("images/pizzabox.png");
 
     Timer(
         Duration(seconds: 0),
@@ -37,6 +43,9 @@ class _SplashScreenState extends State<SplashScreen> {
     precacheImage(foodNoPork.image, context);
     precacheImage(foodNoBP.image, context);
     precacheImage(foodNoRestrict.image, context);
+    precacheImage(wasteBull.image, context);
+    precacheImage(trashCube.image, context);
+    precacheImage(pizzaBox.image, context);
   }
 
   @override

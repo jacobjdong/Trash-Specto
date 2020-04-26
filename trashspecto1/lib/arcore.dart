@@ -44,9 +44,10 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     return MaterialApp(
       home: Scaffold(
         appBar: new AppBar(
+        backgroundColor: Color(0xff5361c2),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.home, color: Color(0xff89e5ff)),
+          icon: Icon(Icons.arrow_back, color: Color(0xff89e5ff)),
           onPressed: () {
             while (Navigator.canPop(ctxt)) {
               Navigator.pop(ctxt);
@@ -69,22 +70,22 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
                 children: <Widget>[
                   RaisedButton(
                     child: Text("Day"),
-                    color: Colors.blue,
+                    color: Color(0xff5361c2),
                     onPressed: () => _day(),
                   ),
                   RaisedButton(
                     child: Text("Week"),
-                    color: Colors.blue,
+                    color: Color(0xff5361c2),
                     onPressed: () => _week(),
                   ),
                   RaisedButton(
                     child: Text("Year"),
-                    color: Colors.blue,
+                    color: Color(0xff5361c2),
                     onPressed: () => _year(),
                   ),
                   RaisedButton(
                     child: Text("Lifetime"),
-                    color: Colors.blue,
+                    color: Color(0xff5361c2),
                     onPressed: () => _lifetime(),
                   ),
                   RaisedButton(
