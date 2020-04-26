@@ -4,6 +4,10 @@ import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
 class ScreenTrash extends StatefulWidget {
+  final bool metric;
+
+  ScreenTrash({this.metric});
+
   @override
   _ScreenTrashState createState() => _ScreenTrashState();
 }
@@ -64,7 +68,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
             borderRadius: BorderRadius.circular(10)
           ),
           child: Container(
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -82,23 +86,24 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     min: 0,
                     max: 100,
                     showerTime: this._recyclePercent,
+                    metric: false,
                     units: "%",
                     unit: "%",
                   ),
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
+                      child: NiceButton(
+                        width: 255,
+                        elevation: 8.0,
+                        radius: 52.0,
+                        text: 'Next',
+                        background: Color(0xff5361c2),
                         onPressed: () {
                           setState(() {
                             visible--;
-                          });
-                        }
-                      ),
+                          });}
+                      )
                     ),
                   ),
                 ],
@@ -120,7 +125,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
           ),
           child: Container(
             alignment: Alignment.center,
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -138,22 +143,27 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     min: 0,
                     max: 100,
                     showerTime: this._compostPercent,
+                    metric: false,
                     units: "%",
                     unit: "%",
                   ),
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(fontSize: 20)
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            visible--;
-                          });
-                        }
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: NiceButton(
+                          width: 255,
+                          elevation: 8.0,
+                          radius: 52.0,
+                          text: 'Next',
+                          background: Color(0xff5361c2),
+                          onPressed: () {
+                            setState(() {
+                              visible--;
+                            });
+                          }
+                        )
                       ),
                     ),
                   ),
@@ -179,7 +189,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                width: 260.0,
+                width: 270.0,
                 height: 350.0,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -234,23 +244,27 @@ class _ScreenTrashState extends State<ScreenTrash> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: RaisedButton(
-                            child: Text(
-                              'Next',
-                              style: TextStyle(fontSize: 20)
-                            ),
-                            onPressed: () {
-                              if (_shoppingType == null) {
-                                setState(() {
-                                  errorString = "Please select a value";
-                                });
-                              } else {
-                                setState(() {
-                                  visible--;
-                                });
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: NiceButton(
+                              width: 255,
+                              elevation: 8.0,
+                              radius: 52.0,
+                              text: 'Next',
+                              background: Color(0xff5361c2),
+                              onPressed: () {
+                                if (_shoppingType == null) {
+                                  setState(() {
+                                    errorString = "Please select a value";
+                                  });
+                                } else {
+                                  setState(() {
+                                    visible--;
+                                  });
+                                }
+                                
                               }
-                              
-                            }
+                            )
                           ),
                         ),
                       ),
@@ -274,7 +288,7 @@ class _ScreenTrashState extends State<ScreenTrash> {
             borderRadius: BorderRadius.circular(10)
           ),
           child: Container(
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -292,17 +306,19 @@ class _ScreenTrashState extends State<ScreenTrash> {
                     min: 0,
                     max: 100,
                     showerTime: this._clothing,
+                    metric: false,
                     units: "%",
                     unit: "%",
                   ),
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        child: Text(
-                          'Submit!',
-                          style: TextStyle(fontSize: 20)
-                        ),
+                      child: NiceButton(
+                        width: 255,
+                        elevation: 8.0,
+                        radius: 52.0,
+                        text: 'Submit!',
+                        background: Color(0xff5361c2),
                         onPressed: () {
                           setState(() {
                             visible--;

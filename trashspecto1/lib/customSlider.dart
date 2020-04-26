@@ -29,7 +29,6 @@ class _customSliderState extends State<customSlider> {
 
   _customSliderState({this.min, this.max, this.showerTime});
 
-
   @override 
   Widget build (BuildContext ctxt) {
     return new Column(
@@ -88,17 +87,21 @@ class _customSliderState extends State<customSlider> {
                       setState(() {
                         showerTime = value;
                       });
-                      widget.updateVal(value);
+                      if (widget.metric) {
+                        widget.updateVal(value);
+                      } else {
+                        widget.updateVal(value * 4046.86);
+                      }
+                        
                     },
                     min: this.min.toDouble(),
                     max: this.max.toDouble(),
                   )
-              
                 )
               ],
             ),
             Text(
-              this.max.toString(),
+              ('10000' == this.max.toString() ? '10k' : this.max.toString()) + (widget.units != '%'  ? "+" : ""),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -109,7 +112,7 @@ class _customSliderState extends State<customSlider> {
           ],
         ),
         Text(
-          this.showerTime.toInt().toString() + ' ' + (this.showerTime.toInt() == 1 ? widget.unit : widget.units),
+          this.showerTime.toInt().toString() + (this.showerTime.toInt() == this.max.toInt() && (widget.units != '%') ? "+" : "") + ' ' + (this.showerTime.toInt() == 1 ? widget.unit : widget.units),
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,

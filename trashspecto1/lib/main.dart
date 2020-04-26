@@ -69,7 +69,9 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                     Navigator.push(
                       ctxt,
-                      MaterialPageRoute(builder: (ctxt) => ScreenTrash()),
+                      MaterialPageRoute(builder: (ctxt) => ScreenTrash(
+                        metric: this.metric,
+                      )),
                     );
                   }
                 ),
@@ -87,7 +89,9 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                       Navigator.push(
                       ctxt,
-                      MaterialPageRoute(builder: (ctxt) => ScreenWastewater()),
+                      MaterialPageRoute(builder: (ctxt) => ScreenWastewater(
+                        metric: this.metric,
+                      )),
                     );
                   }
                 ),
@@ -105,7 +109,9 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                     Navigator.push(
                       ctxt,
-                      MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste()),
+                      MaterialPageRoute(builder: (ctxt) => ScreenFoodWaste(
+                        metric: this.metric,
+                      )),
                     );
                   }
                 ),

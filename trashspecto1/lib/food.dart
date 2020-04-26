@@ -4,6 +4,10 @@ import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
 class ScreenFoodWaste extends StatefulWidget {
+  final bool metric;
+
+  ScreenFoodWaste({this.metric});
+
   @override
   _ScreenFoodWasteState createState() => _ScreenFoodWasteState();
 }
@@ -67,7 +71,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                width: 260.0,
+                width: 270.0,
                 height: 350.0,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -181,7 +185,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                width: 260.0,
+                width: 270.0,
                 height: 350.0,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -199,8 +203,9 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         min: 1,
                         max: 14,
                         showerTime: this._eatingOut,
+                        metric: false,
                         units: "times a week",
-                        unit: "time a week"
+                        unit: "time a week",
                       ),
                       Expanded(
                         child: Align(
@@ -243,7 +248,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                width: 260.0,
+                width: 270.0,
                 height: 350.0,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -261,6 +266,7 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
                         min: 0,
                         max: 100,
                         showerTime: this._compostingFreq,
+                        metric: false,
                         units: "%",
                         unit: "%",
                       ),

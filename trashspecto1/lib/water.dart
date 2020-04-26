@@ -4,18 +4,29 @@ import 'package:nice_button/nice_button.dart';
 import 'arcore.dart';
 
 class ScreenWastewater extends StatefulWidget {
+  final bool metric;
+
+  ScreenWastewater({this.metric});
+
   @override
   _ScreenWastewaterState createState() => _ScreenWastewaterState();
 }
 
 class _ScreenWastewaterState extends State<ScreenWastewater> {
-  double _showerTime = 10, _showerFreq = 7, _clothesFreq = 4, _lawnSize = 50, _toiletFreq = 3;
+  double _showerTime = 10, _showerFreq = 7, _clothesFreq = 4, _toiletFreq = 3;
+  double _lawnSize;
   String _dishwasherType;
   String newValue;
   String errorString = '';
 
   List<Widget> cards;
   int visible = 6;
+
+  @override
+  void initState() {
+    super.initState();
+    _lawnSize = (widget.metric ? 50 : 1);
+}
   
 
   dynamic _background = "images/bathroomlayout.png";
@@ -65,7 +76,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
             borderRadius: BorderRadius.circular(10)
           ),
           child: Container(
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -83,6 +94,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 10,
                     showerTime: this._toiletFreq,
+                    metric: false,
                     units: "times a day",
                     unit: "time a day",
                   ),
@@ -122,7 +134,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
             borderRadius: BorderRadius.circular(10)
           ),
           child: Container(
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -140,6 +152,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 14,
                     showerTime: this._showerFreq,
+                    metric: false,
                     units: "times a week",
                     unit: "time a week",
                   ),
@@ -179,7 +192,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
           ),
           child: Container(
             alignment: Alignment.center,
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -197,6 +210,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 5,
                     max: 30,
                     showerTime: this._showerTime,
+                    metric: false,
                     units: "minutes",
                     unit: "minute",
                   ),
@@ -240,7 +254,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                width: 260.0,
+                width: 270.0,
                 height: 350.0,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -336,7 +350,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
           ),
           child: Container(
             alignment: Alignment.center,
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -354,6 +368,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                     min: 0,
                     max: 8,
                     showerTime: this._clothesFreq,
+                    metric: false,
                     units: "times a month",
                     unit: "time a month"
                   ),
@@ -393,7 +408,7 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
             borderRadius: BorderRadius.circular(10)
           ),
           child: Container(
-            width: 260.0,
+            width: 270.0,
             height: 350.0,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -406,14 +421,16 @@ class _ScreenWastewaterState extends State<ScreenWastewater> {
                       setState(() {
                         this._lawnSize = value;
                       });
+                      print(value);
                       
                     },
                     question: "How large is your grass lawn?",
                     min: 0,
-                    max: 100,
+                    max: widget.metric ? 10000 : 5,
                     showerTime: this._lawnSize,
-                    units: "meters\u00B2",
-                    unit: "meter\u00B2",
+                    metric: widget.metric,
+                    units: widget.metric ? "meters\u00B2" : "Acres",
+                    unit: widget.metric ? "meter\u00B2" : "Acre",
                   ),
                   Expanded(
                     child: Align(
