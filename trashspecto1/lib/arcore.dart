@@ -24,7 +24,8 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
   ArCoreController arCoreController;
   ArCoreNode node;
   bool placed = false;
-
+  int multiplier;
+  int walle;
   String state;
   double data;
 
@@ -54,13 +55,69 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
         ),
         title: new Text ("AR Viewer", textAlign: TextAlign.center),
       ),
-        body: ArCoreView(
-          onArCoreViewCreated: _onArCoreViewCreated,
-          enableUpdateListener: true,
-          enableTapRecognizer: true,
+        body: Stack(
+          children: <Widget>[
+            ArCoreView(
+              onArCoreViewCreated: _onArCoreViewCreated,
+              enableUpdateListener: true,
+              enableTapRecognizer: true,
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: ButtonBar(
+                alignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text("Day"),
+                    color: Colors.blue,
+                    onPressed: () => _day(),
+                  ),
+                  RaisedButton(
+                    child: Text("Week"),
+                    color: Colors.blue,
+                    onPressed: () => _week(),
+                  ),
+                  RaisedButton(
+                    child: Text("Year"),
+                    color: Colors.blue,
+                    onPressed: () => _year(),
+                  ),
+                  RaisedButton(
+                    child: Text("Lifetime"),
+                    color: Colors.blue,
+                    onPressed: () => _lifetime(),
+                  ),
+                  RaisedButton(
+                    child: Text("Clear"),
+                    onPressed: () {},
+                  )
+                ]
+              ),
+            )
+          ],
         ),
       ),
     );
+  }
+
+  void _day() {
+    multiplier = 1;
+    walle = 1;
+  }
+
+  void _week() {
+    multiplier = 7;
+    walle = 7;
+  }
+
+  void _year() {
+    multiplier = 365;
+    walle = 52;
+  }
+
+  void _lifetime() {
+    multiplier = 365*80;
+    walle = 80;
   }
 
   void _onArCoreViewCreated(ArCoreController controller) {
@@ -71,9 +128,9 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
 
   void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
     final hit = hits.last;
-    _spawnTrashPyramid(getData("trash"), 80, hit); //Takes kilograms
-    _spawnPizzaPyramid(getData("food"), hit);  //Takes pounds
-    _spawnRedBullPyramidGal(getData("water"), hit); //Takes liters
+    _spawnTrashPyramid(getData("trash") * multiplier, walle, hit); //Takes kilograms
+    _spawnPizzaPyramid(getData("food") * multiplier, hit);  //Takes pounds
+    _spawnRedBullPyramidGal(getData("water") * multiplier, hit); //Takes liters
   }
 
   void _spawnTrashPyramid(double trash, int numCubes, ArCoreHitTestResult plane) {
@@ -300,3 +357,5 @@ class _AutoDetectPlaneState extends State<AutoDetectPlane> {
     super.dispose();
   }
 }
+
+
