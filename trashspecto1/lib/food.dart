@@ -309,12 +309,16 @@ class _ScreenFoodWasteState extends State<ScreenFoodWaste> {
       result *= .6;
     } else if (_diet == 'Vegetarian') {
       result *= .68;
+    } 
+      else if (_diet == 'No Beef' || _diet == 'No Pork' || _diet == 'No Beef or Pork'){
+      result *= .76;
     } else if (_diet == 'No Restrictions') {
     } else {
       result *= .68;
     }
 
-    result *= (1 - _compostingFreq * .01 + 0.01);
+    result *= (1 - (_compostingFreq * .01));
+    result /= 7;
     return result;
   }
 }
